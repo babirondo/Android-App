@@ -7,20 +7,24 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.json.JSONArray;
-import org.json.JSONException;
+
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
+
+
 
 public class API extends AsyncTask<String, String, String> {
 	
 	public JSONObject JSON;
+	CallBackListener mListener;
+	Object instance;
+	 
 	
-    public API() {
+    public API(Object obj) {
 		// TODO Auto-generated constructor stub
+    	instance = obj;
 	}
     
     public boolean EnviaPedidoRest(String urlString)
@@ -46,13 +50,13 @@ public class API extends AsyncTask<String, String, String> {
                 responseStrBuilder.append(inputStr);
             this.JSON = new JSONObject(responseStrBuilder.toString());
             
-            Log.d("bruno", JSON.toString());
+            Log.d("BrunoAPI", JSON.toString());
 
             return true;
          } catch (Exception e ) {
 
             System.out.println(e.getMessage());
-            Log.d("bruno","deu erro pra pegar o JSON");
+            Log.d("BrunoAPI","deu erro pra pegar o JSON");
             return false;
 
          } 
@@ -64,41 +68,24 @@ public class API extends AsyncTask<String, String, String> {
 
         String urlString=params[0]; // URL to call
         
-        this.EnviaPedidoRest(urlString);
-    	Log.d("bruno","doing");
+        if (!this.EnviaPedidoRest(urlString))
+        		Log.d("BrunoAPI", "houve um erro na captura do JSON");
+    	Log.d("BrunoAPI","doing");
 		return "1";
     
     }
 
     protected void onPostExecute(String result) {
-    	result =  "aaaa";
-    	this.ContinuaAuth();
-    	Log.d("bruno","post execute"  );
-    }
-   
-
-    public void Auth( String apiurl ) {
+    	Log.d("BrunoAPI","post execute"  );
+    	 
+    	 mListener.callback( this.instance);
     	
-    	//logar
-    	Log.d("bruno","ta no Auth");
-    	this.execute( apiurl + "Auth/babirondo@gmail.com/senha/" );
-    	Log.d("bruno","voltou pro Auth");
-
     }
-    public void ContinuaAuth()
-    {
-    	try {
-		//	JSONObject jObj = new JSONObject(this.JSON.toString() );
-			
-			JSONArray retorno = this.JSON.getJSONArray("AUTH");
-			JSONObject c = retorno.getJSONObject(0);
-			
-			Log.d("bruno", c.getString("email") );
-			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			  Log.e("bruno", "Error parsing data " + e.toString());
-		}
+
+    
+
+    public void setListener(CallBackListener listener){
+      mListener = listener;
     }
     
 } // end CallAPI 
