@@ -3,6 +3,7 @@ package com.example.testeadt;
  
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements CallBackListener {
 
-    public final static String ApiURL = "http://10.0.2.2/api/";
+    
     public Class_Auth Auth = new Class_Auth(this);
 
     @Override
@@ -59,6 +60,12 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
 		
 		if (Auth.LoginResultado == true){
 			// chama outra activity
+			  Intent intent = new Intent();
+              intent.setClass(this, Home.class);
+
+              startActivity(intent);
+
+              finish();
 		}
 			
 		else

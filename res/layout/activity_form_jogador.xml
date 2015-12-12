@@ -1,0 +1,198 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.testeadt.FormJogador" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/abc_ic_menu_share_holo_light" />
+
+    
+    <TextView
+        android:id="@+id/LabelNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="20dp"
+        android:text="# Num"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/Num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/LabelNum"
+        android:layout_alignBottom="@+id/LabelNum"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="text"
+        android:text="teste...."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+   
+    <TextView
+        android:id="@+id/LabelNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/LabelNum"
+        android:layout_marginTop="20dp"
+        android:text="Nome"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/Nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/LabelNome"
+        android:layout_alignBottom="@+id/LabelNome"
+        android:layout_alignParentRight="true"
+        
+        android:ems="10"
+              android:inputType="text"
+        android:text="teste...."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/LabelTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/LabelNome"
+        android:text="Time"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/LabelTime"
+        android:layout_alignBottom="@+id/LabelTime"
+        android:layout_alignParentRight="true"
+          android:inputType="text"
+        
+        android:ems="10"
+        android:text="teste...."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/LabelPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/LabelTime"
+        android:text="Peso"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/Peso"
+        android:layout_width="wrap_content"
+            android:inputType="text"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/LabelPeso"
+        android:layout_alignBottom="@+id/LabelPeso"
+        android:layout_alignParentRight="true"
+        
+        android:ems="10"
+        android:text="teste...."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/LabelAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/LabelPeso"
+        android:text="Altura"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/Altura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/LabelAltura"
+        android:layout_alignBottom="@+id/LabelAltura"
+        android:layout_alignParentRight="true"
+     
+            android:inputType="text"
+        android:ems="10"
+        android:text="teste...."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Snake"
+        android:layout_below="@id/LabelAltura"
+        android:src="@drawable/abc_ic_cab_done_holo_light" />
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CornerSnake"
+        android:layout_below="@id/LabelAltura"
+        android:layout_toRightOf="@id/Snake"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+      
+         
+        android:src="@drawable/abc_ic_cab_done_holo_light" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BackCenter"
+        android:layout_toRightOf="@id/CornerSnake"
+         
+        android:layout_alignBottom="@+id/Snake"
+       
+        
+        android:src="@drawable/abc_ic_cab_done_holo_light" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CornerDoritos"
+        
+        android:layout_toRightOf="@id/BackCenter"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:src="@drawable/abc_ic_cab_done_holo_light" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Doritos"
+        android:layout_toRightOf="@id/CornerDoritos"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:src="@drawable/abc_ic_cab_done_holo_light" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Coach"
+        android:layout_toRightOf="@id/Doritos"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:src="@drawable/abc_ic_cab_done_holo_light" />
+
+    <Button
+        android:id="@+id/Salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Snake"
+        android:layout_marginTop="34dp"
+        android:layout_toRightOf="@+id/Snake"
+        android:onClick="SalvarOnClick"
+        android:text="Salvar" />
+    
+</RelativeLayout>
