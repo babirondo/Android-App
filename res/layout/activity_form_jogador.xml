@@ -126,64 +126,87 @@
         android:text="teste...."
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
-    
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/Snake"
-        android:layout_below="@id/LabelAltura"
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LabelAltura"         
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:onClick="PosicaoSnakeOnClick"
+        android:src="@drawable/snake" />
     
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/CornerSnake"
-        android:layout_below="@id/LabelAltura"
-        android:layout_toRightOf="@id/Snake"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-      
-         
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/LabelAltura"         
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:layout_toRightOf="@id/Snake"        
+        android:onClick="PosicaoSnakeCornerOnClick"
+        android:src="@drawable/snakecorner" />
+    
+    <ImageView
         android:id="@+id/BackCenter"
-        android:layout_toRightOf="@id/CornerSnake"
-         
-        android:layout_alignBottom="@+id/Snake"
-       
-        
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/LabelAltura"         
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:layout_toRightOf="@id/CornerSnake"        
+        android:onClick="PosicaoBackCenterOnClick"
+        android:src="@drawable/backcenter" />
+ 
+    <ImageView
         android:id="@+id/CornerDoritos"
-        
-        android:layout_toRightOf="@id/BackCenter"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/LabelAltura"         
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:layout_toRightOf="@id/BackCenter"        
+        android:onClick="PosicaoCornerDoritosOnClick"
+        android:src="@drawable/cornerdoritos" />
+ 
+    <ImageView
         android:id="@+id/Doritos"
-        android:layout_toRightOf="@id/CornerDoritos"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Coach"
-        android:layout_toRightOf="@id/Doritos"
+        android:layout_below="@id/LabelAltura"         
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
         android:layout_alignBaseline="@id/Snake"
         android:layout_alignBottom="@+id/Snake"
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
+        android:layout_toRightOf="@id/CornerDoritos"        
+        android:onClick="PosicaoDoritosOnClick"
+        android:src="@drawable/doritos" />
+ 
+    <ImageView
+        android:id="@+id/Coach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LabelAltura"         
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:layout_alignBaseline="@id/Snake"
+        android:layout_alignBottom="@+id/Snake"
+        android:layout_toRightOf="@id/Doritos"        
+        android:onClick="PosicaoCoachOnClick"
+        android:src="@drawable/coach" />
+    
 
     <Button
         android:id="@+id/Salvar"
@@ -194,5 +217,7 @@
         android:layout_toRightOf="@+id/Snake"
         android:onClick="SalvarOnClick"
         android:text="Salvar" />
+
+     
     
 </RelativeLayout>

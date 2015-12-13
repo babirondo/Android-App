@@ -19,6 +19,10 @@ public   class Class_Jogador implements CallBackListener {
 		}
 		
 		
+		
+	  
+
+		
 		   public void setSalvar( String Chave,  String Valor  ) {
 			    API.Adicionar( Chave, Valor );
 		    }
@@ -35,8 +39,8 @@ public   class Class_Jogador implements CallBackListener {
 		public void callback(Object obj) {
 			// TODO Auto-generated method stub
 			Log.d("BrunoClassJogador", "voltou no callback");
-			
-	    	 
+			    	 
+ 			 API = null; API = new API(this);
 	    	 mListener.callback( this.instance);
 			
 		}

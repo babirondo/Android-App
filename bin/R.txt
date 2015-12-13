@@ -234,7 +234,13 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_launcher 0x7f020057
+int drawable backcenter 0x7f020057
+int drawable coach 0x7f020058
+int drawable cornerdoritos 0x7f020059
+int drawable doritos 0x7f02005a
+int drawable ic_launcher 0x7f02005b
+int drawable snake 0x7f02005c
+int drawable snakecorner 0x7f02005d
 int id Altura 0x7f050047
 int id BackCenter 0x7f05004a
 int id Coach 0x7f05004d

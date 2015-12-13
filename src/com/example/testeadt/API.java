@@ -33,6 +33,7 @@ public class API extends AsyncTask<String, String, String> {
 	public JSONObject JSON = new JSONObject();//responseStrBuilder.toString()
 	CallBackListener mListener;
 	Object instance;
+	public boolean Resultado_PUT;
 	 
 	
     public API(Object obj) {
@@ -128,8 +129,15 @@ public class API extends AsyncTask<String, String, String> {
 	    	break;
 
 	    	case ("put"):
-	            if (!this.PutRest(urlString, JSON.toString()))
-	        		Log.d("BrunoAPI", "houve um erro no salvar dos dados");
+	            if (!this.PutRest(urlString, JSON.toString())){
+	            	Log.d("BrunoAPI", "houve um erro no salvar dos dados");
+	            	this.Resultado_PUT = false;
+	            }
+	            else{
+	            	this.Resultado_PUT = true;
+	            }
+	            	
+	        		
 	    	break;
         }
     	Log.d("BrunoAPI","doing");
