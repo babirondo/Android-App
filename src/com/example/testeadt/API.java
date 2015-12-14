@@ -43,7 +43,7 @@ public class API extends AsyncTask<String, String, String> {
     
     public boolean GetRest(String urlString)
     {
-    	  Log.d("BrunoAPI","get Rest");
+    	Log.d("BrunoAPI","get Rest");
         String resultToDisplay = "";
         InputStream in = null;
         
@@ -52,25 +52,37 @@ public class API extends AsyncTask<String, String, String> {
 
             URL url = new URL(urlString);
 
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-            in = new BufferedInputStream(urlConnection.getInputStream());
             
-            BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, "UTF-8")); 
-            StringBuilder responseStrBuilder = new StringBuilder();
-
-            String inputStr;
-            while ((inputStr = streamReader.readLine()) != null)
-                responseStrBuilder.append(inputStr);
-            this.JSON = new JSONObject(responseStrBuilder.toString());
+            HttpURLConnection urlConnection = null;
             
-            Log.d("BrunoAPI", JSON.toString());
+            
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.connect();
+           // urlConnection.getResponseCode();
+            
+           // if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+           
+                InputStream AquiOuAli =  (urlConnection != null) ? urlConnection.getInputStream() : null;
+                in = new BufferedInputStream(AquiOuAli);
+                
+                BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, "UTF-8")); 
+                StringBuilder responseStrBuilder = new StringBuilder();
 
-            return true;
+                String inputStr;
+                while ((inputStr = streamReader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
+                this.JSON = new JSONObject(responseStrBuilder.toString());
+                
+                Log.d("BrunoAPI", JSON.toString());
+
+                return true;
+            	
+          //  }
+          //  else 	return false;
          } catch (Exception e ) {
 
-            System.out.println(e.getMessage());
-            Log.d("BrunoAPI","deu erro pra pegar o JSON");
+            
+            Log.e("ERROR",e.toString());
             return false;
 
          } 

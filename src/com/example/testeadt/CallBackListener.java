@@ -11,7 +11,5 @@ public interface CallBackListener {
 	public static final int IDPosicao_BackCenter = 3;
 	public static final int IDPosicao_Doritos = 4;
 	public static final int IDPosicao_DoritosCorner = 5;
-	
- 
-	
+	 
 }

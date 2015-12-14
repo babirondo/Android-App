@@ -9,23 +9,19 @@ import android.text.Editable;
 import android.util.Log;
 
 public   class Class_Jogador implements CallBackListener {
-		public API API = new API(this);
+		public API API;
 		public boolean LoginResultado;
 		CallBackListener mListener;
 		Object instance;
 
 		public Class_Jogador(Object obj){
 			instance = obj;
+			API = new API(this);
 		}
-		
-		
-		
-	  
-
 		
 		   public void setSalvar( String Chave,  String Valor  ) {
 			    API.Adicionar( Chave, Valor );
-		    }
+		   }
 
 		   public void Salvar(    ) {
 			    API.setListener(this);
@@ -40,11 +36,20 @@ public   class Class_Jogador implements CallBackListener {
 			// TODO Auto-generated method stub
 			Log.d("BrunoClassJogador", "voltou no callback");
 			    	 
- 			 API = null; API = new API(this);
+ 		//	 API = null; API = new API(this);
 	    	 mListener.callback( this.instance);
 			
 		}
 	    public void setListener(CallBackListener listener){
 	        mListener = listener;
 	      }
+
+		public void CarregarDados() {
+			 
+
+			// TODO: criar metodo sincrono pra resgatar os dados 
+			API.GetRest(ApiURL+"Jogador/2/");
+			
+			
+		}
 }

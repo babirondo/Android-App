@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.testeadt.FormJogador" >
+    tools:context="com.example.testeadt.FormJogador" xmlns:app="http://schemas.android.com/apk/res/android">
 
     <ImageView
         android:id="@+id/imageView1"
@@ -18,7 +18,6 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/abc_ic_menu_share_holo_light" />
 
-    
     <TextView
         android:id="@+id/LabelNum"
         android:layout_width="wrap_content"
@@ -38,18 +37,9 @@
         android:layout_alignParentRight="true"
         android:ems="10"
         android:inputType="text"
-        android:text="teste...."
+        android:text="13"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-   
-    <TextView
-        android:id="@+id/LabelNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/LabelNum"
-        android:layout_marginTop="20dp"
-        android:text="Nome"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <EditText
         android:id="@+id/Nome"
         android:layout_width="wrap_content"
@@ -57,20 +47,19 @@
         android:layout_alignBaseline="@+id/LabelNome"
         android:layout_alignBottom="@+id/LabelNome"
         android:layout_alignParentRight="true"
-        
         android:ems="10"
-              android:inputType="text"
-        android:text="teste...."
+        android:inputType="text"
+        android:text="Bruno Siqueira"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    
+
     <TextView
         android:id="@+id/LabelTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        
         android:layout_below="@+id/LabelNome"
         android:text="Time"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <EditText
         android:id="@+id/Time"
         android:layout_width="wrap_content"
@@ -78,12 +67,11 @@
         android:layout_alignBaseline="@+id/LabelTime"
         android:layout_alignBottom="@+id/LabelTime"
         android:layout_alignParentRight="true"
-          android:inputType="text"
-        
         android:ems="10"
-        android:text="teste...."
+        android:inputType="text"
+        android:text="3"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    
+
     <TextView
         android:id="@+id/LabelPeso"
         android:layout_width="wrap_content"
@@ -92,19 +80,19 @@
         android:layout_below="@+id/LabelTime"
         android:text="Peso"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <EditText
         android:id="@+id/Peso"
         android:layout_width="wrap_content"
-            android:inputType="text"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/LabelPeso"
         android:layout_alignBottom="@+id/LabelPeso"
         android:layout_alignParentRight="true"
-        
         android:ems="10"
-        android:text="teste...."
+        android:inputType="text"
+        android:text="100"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    
+
     <TextView
         android:id="@+id/LabelAltura"
         android:layout_width="wrap_content"
@@ -113,6 +101,7 @@
         android:layout_below="@+id/LabelPeso"
         android:text="Altura"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <EditText
         android:id="@+id/Altura"
         android:layout_width="wrap_content"
@@ -120,104 +109,193 @@
         android:layout_alignBaseline="@+id/LabelAltura"
         android:layout_alignBottom="@+id/LabelAltura"
         android:layout_alignParentRight="true"
-     
-            android:inputType="text"
         android:ems="10"
-        android:text="teste...."
+        android:inputType="text"
+        android:text="1,78"
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
-    <ImageView
-        android:id="@+id/Snake"
+    <TextView
+        android:id="@+id/LabelSuasPosicoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/LabelAltura"         
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:onClick="PosicaoSnakeOnClick"
-        android:src="@drawable/snake" />
-    
-    <ImageView
-        android:id="@+id/CornerSnake"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/LabelAltura"         
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:layout_toRightOf="@id/Snake"        
-        android:onClick="PosicaoSnakeCornerOnClick"
-        android:src="@drawable/snakecorner" />
-    
-    <ImageView
-        android:id="@+id/BackCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/LabelAltura"         
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:layout_toRightOf="@id/CornerSnake"        
-        android:onClick="PosicaoBackCenterOnClick"
-        android:src="@drawable/backcenter" />
- 
-    <ImageView
-        android:id="@+id/CornerDoritos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/LabelAltura"         
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:layout_toRightOf="@id/BackCenter"        
-        android:onClick="PosicaoCornerDoritosOnClick"
-        android:src="@drawable/cornerdoritos" />
- 
-    <ImageView
-        android:id="@+id/Doritos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/LabelAltura"         
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:layout_toRightOf="@id/CornerDoritos"        
-        android:onClick="PosicaoDoritosOnClick"
-        android:src="@drawable/doritos" />
- 
-    <ImageView
-        android:id="@+id/Coach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/LabelAltura"         
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:layout_alignBaseline="@id/Snake"
-        android:layout_alignBottom="@+id/Snake"
-        android:layout_toRightOf="@id/Doritos"        
-        android:onClick="PosicaoCoachOnClick"
-        android:src="@drawable/coach" />
-    
+        android:layout_alignLeft="@+id/CornerDoritos"
+        android:layout_below="@+id/Altura"
+        android:layout_marginTop="18dp"
+        android:text="Quais as posições que você sabe jogar ?"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
-        android:id="@+id/Salvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Snake"
-        android:layout_marginTop="34dp"
-        android:layout_toRightOf="@+id/Snake"
-        android:onClick="SalvarOnClick"
-        android:text="Salvar" />
+        <TextView
+            android:id="@+id/LabelNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/LabelTime"
+            android:layout_below="@+id/Num"
+            android:text="Nome"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-     
-    
+        <Button
+            android:id="@+id/Salvar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/LabelNum"
+            android:layout_alignRight="@+id/Num"
+            android:onClick="SalvarOnClick"
+            android:text="Salvar" />
+
+        <TextView
+            android:id="@+id/Joganoseutime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_below="@+id/CornerDoritos"
+            android:layout_marginTop="28dp"
+            android:text="Quais as posições que você joga no seu time ?"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/Coach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/CornerDoritos"
+            android:layout_toRightOf="@+id/CornerDoritos"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:onClick="PosicaoCoachOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/coach"  />
+
+        <ImageView
+            android:id="@+id/Snake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Joganoseutime"
+            android:layout_toRightOf="@+id/Coach"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:onClick="PosicaoSnakeOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/snake" />
+
+        <ImageView
+            android:id="@+id/BackCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Joganoseutime"
+            android:layout_toRightOf="@+id/Snake"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:onClick="PosicaoBackCenterOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/backcenter" />
+
+        <ImageView
+            android:id="@+id/Doritos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/BackCenter"
+            android:layout_toRightOf="@+id/BackCenter"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:onClick="PosicaoDoritosOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/doritos" />
+
+        <ImageView
+            android:id="@+id/CornerDoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/LabelSuasPosicoes"
+            android:layout_marginTop="18dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:onClick="PosicaoCornerDoritosOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/cornerdoritos" />
+
+        <ImageView
+            android:id="@+id/SnakeCorner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/Doritos"
+            android:layout_toRightOf="@+id/Doritos"
+            android:adjustViewBounds="true"
+            android:maxHeight="50dp"
+            android:onClick="PosicaoSnakeCornerOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/snakecorner" />
+        
+        
+        
+        <ImageView
+            android:id="@+id/TIMECornerDoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+         	android:layout_below="@+id/Joganoseutime"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:onClick="PosicaoTIMECornerDoritosOnClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/cornerdoritos" />
+
+        <ImageView
+            app:id="@+id/TIMECoach"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignTop="@+id/TIMECornerDoritos"
+            app:layout_toRightOf="@+id/TIMECornerDoritos"
+            app:adjustViewBounds="true"
+            app:maxWidth="50dp"
+            app:onClick="PosicaoTIMECoachOnClick"
+            app:scaleType="fitXY"
+            app:src="@drawable/coach" />
+
+        <ImageView
+            app:id="@+id/TIMESnake"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignTop="@+id/TIMECoach"
+            app:layout_toRightOf="@+id/TIMECoach"
+            app:adjustViewBounds="true"
+            app:maxWidth="50dp"
+            app:onClick="PosicaoTIMESnakeOnClick"
+            app:scaleType="fitXY"
+            app:src="@drawable/snake" />
+
+        <ImageView
+            app:id="@+id/TIMEBackCenter"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignTop="@+id/TIMESnake"
+            app:layout_toRightOf="@+id/TIMESnake"
+            app:adjustViewBounds="true"
+            app:maxWidth="50dp"
+            app:onClick="PosicaoTIMEBackCenterOnClick"
+            app:scaleType="fitXY"
+            app:src="@drawable/backcenter" />
+
+        <ImageView
+            app:id="@+id/TIMEDoritos"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignTop="@+id/TIMEBackCenter"
+            app:layout_toRightOf="@+id/TIMEBackCenter"
+            app:adjustViewBounds="true"
+            app:maxWidth="50dp"
+            app:onClick="PosicaoTIMEDoritosOnClick"
+            app:scaleType="fitXY"
+            app:src="@drawable/doritos" />
+
+        <ImageView
+            app:id="@+id/TIMESnakeCorner"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignTop="@+id/TIMEDoritos"
+            app:layout_toRightOf="@+id/TIMEDoritos"
+            app:adjustViewBounds="true"
+            app:maxHeight="50dp"
+            app:onClick="PosicaoTIMESnakeCornerOnClick"
+            app:scaleType="fitXY"
+            app:src="@drawable/snakecorner" />
+
 </RelativeLayout>
