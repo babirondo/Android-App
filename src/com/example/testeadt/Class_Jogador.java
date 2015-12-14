@@ -1,11 +1,16 @@
 package com.example.testeadt;
 
+import java.io.ByteArrayOutputStream;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.Editable;
+import android.util.Base64;
 import android.util.Log;
 
 public   class Class_Jogador implements CallBackListener {
@@ -21,6 +26,20 @@ public   class Class_Jogador implements CallBackListener {
 		
 		   public void setSalvar( String Chave,  String Valor  ) {
 			    API.Adicionar( Chave, Valor );
+		   }
+		   public void setSalvarFoto( String Chave,  String Valor  ) {
+			   
+			   
+			  
+			   Bitmap bm = BitmapFactory.decodeFile(Valor);
+			   ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+			   bm.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object   
+			   byte[] b = baos.toByteArray(); 
+			   Log.d("BRUNOCLASSJOGADOR", b.toString());
+			 
+					   
+					   
+			    API.Adicionar( Chave, Base64.encodeToString(b, Base64.DEFAULT) );
 		   }
 
 		   public void Salvar(    ) {
