@@ -8,12 +8,9 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
 
-    
-		<uses-permission android:name="android.permission.INTERNET" > </uses-permission>
-		 
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
- 
-   
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -36,6 +33,10 @@
         <activity
             android:name=".FormJogador"
             android:label="@string/title_activity_form_jogador" >
+        </activity>
+        <activity
+            android:name=".Feed"
+            android:label="@string/title_activity_feed" >
         </activity>
     </application>
 

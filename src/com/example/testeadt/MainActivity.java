@@ -4,6 +4,7 @@ package com.example.testeadt;
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,10 +23,21 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);    
 
-        Auth.setListener(this);
-        Log.d("BrunoMainActivity","antes de chamar  o auth");
-        Auth.Auth( ApiURL ); 
-        Log.d("BrunoMainActivity","depois de chamar");    
+        SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
+        boolean jaLogou = prefs.getBoolean("estaLogado", false);
+
+         if(jaLogou) {
+             // chama a tela inicial
+        	 Logou();
+         }else {
+             // chama a tela de login
+             Auth.setListener(this);
+             Log.d("BrunoMainActivity","antes de chamar  o auth");
+             Auth.Auth( ApiURL ); 
+             Log.d("BrunoMainActivity","depois de chamar");   
+        }        
+        
+ 
          
         
         
@@ -59,16 +71,28 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
 		Log.d("BrunoMainActivity", "voltou pra main");
 		
 		if (Auth.LoginResultado == true){
-			// chama outra activity
-			  Intent intent = new Intent();
-              intent.setClass(this, Home.class);
-
-              startActivity(intent);
-
-              finish();
-		}
 			
+			SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.putBoolean("estaLogado", true);
+
+			editor.commit();
+			// chama outra activity 
+			Logou();
+		}	
 		else
 			Toast.makeText( this, "Erro no login", Toast.LENGTH_LONG).show();
+	}
+	
+	
+	public void Logou()
+	{
+		  Intent intent = new Intent();
+          intent.setClass(this, Home.class);
+
+          startActivity(intent);
+
+          finish();
+	 
 	}
 }
