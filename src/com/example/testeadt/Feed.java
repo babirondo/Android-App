@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class Feed extends  ListActivity implements CallBackListener {
@@ -30,7 +31,9 @@ public class Feed extends  ListActivity implements CallBackListener {
       
      	this.FeedMake.setListener(this);
 		this.FeedMake.LoadFeed(ApiURL );
-		setListAdapter(new FeedAdapter (this , this.FeedMake.FeedList));
+		Log.d("FEED", "Carregou Feed em memoria, chamando pra adpater pra listar na tela");
+		ListAdapter a = new FeedAdapter (this , this.FeedMake.FeedList);
+		setListAdapter(a );
 
 
 	}
