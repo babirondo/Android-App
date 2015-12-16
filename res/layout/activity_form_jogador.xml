@@ -316,8 +316,9 @@
             android:id="@+id/Salvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" 
+           
            	android:layout_below="@+id/TIMEBackCenter"
+           	android:layout_alignParentLeft="true"
             android:onClick="SalvarOnClick"
             android:text="Salvar" />
 </RelativeLayout>

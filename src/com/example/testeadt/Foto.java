@@ -25,11 +25,7 @@ public class Foto extends Activity {
 	}
 
 	public void EscolheFoto(   ) {
-	     
-		 
-     
-       
-	   
+
 	}
 	public Bitmap decodificar(String ValorBanco)
 	{

@@ -71,4 +71,10 @@ public   class Class_Jogador implements CallBackListener {
 			
 			
 		}
+
+		@Override
+		public void SaveFeedCallback(Object obj) {
+			// TODO Auto-generated method stub
+			
+		}
 }

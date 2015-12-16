@@ -65,4 +65,11 @@ public   class Class_Auth implements CallBackListener {
 	    public void setListener(CallBackListener listener){
 	        mListener = listener;
 	      }
+
+
+		@Override
+		public void SaveFeedCallback(Object obj) {
+			// TODO Auto-generated method stub
+			
+		}
 }

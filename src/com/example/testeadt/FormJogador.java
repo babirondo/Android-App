@@ -61,6 +61,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 	EditText Altura = null;
 
 	private String filePath = null;
+	public Utils ClassUtils = new Utils();
  
 
    
@@ -75,6 +76,8 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		StrictMode.setThreadPolicy(policy); 
 		
 		ImageView fotoJogador = (ImageView) findViewById(R.id.fotoJogador);
+		
+		
 		 
 
 		 NomeJogador = (EditText) findViewById(R.id.nomeJogador);
@@ -89,9 +92,9 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		//TODO: Consultar dados para resgatar os dados já salvos
         
     	try {
-            Log.d("BrunoFormJogador","Carregando dados se já existentes" );
-            Jogador.CarregarDados(   ); 
 
+    		Log.d("BrunoFormJogador","Carregando dados o banco se já existentes" );
+            Jogador.CarregarDados(   ); 
             JSONObject jObj = new JSONObject(Jogador.API.JSON.toString() );
 			
 			if ( jObj.getString("resultado").equalsIgnoreCase("SUCESSO")   ){				
@@ -101,7 +104,8 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 				Num.setText(   jObj.getString("Num") );
 				Time.setText(   jObj.getString("IDTime") );
 				Peso.setText(   jObj.getString("Peso") );	
-				fotoJogador.setImageBitmap( Foto.decodificar(    jObj.getString("fotoJogador") )  );
+				if (!ClassUtils.isNullOrBlank(jObj.getString("fotoJogador") ) )
+					fotoJogador.setImageBitmap( Foto.decodificar(    jObj.getString("fotoJogador") )  );
 				Altura.setText(   jObj.getString("Altura") );
 							
 				JSONArray JsonPosicoes = jObj.getJSONArray("POSICOES_JOGADOR");
@@ -257,7 +261,9 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 	       Jogador.setSalvar( "Time", Time.getText().toString() ); 
 	       Jogador.setSalvar( "Peso", Peso.getText().toString() ); 
 	       Jogador.setSalvar( "Altura", Altura.getText().toString() ); 
-	       Jogador.setSalvarFoto( "fotoJogador", this.filePath ); 
+	       
+	       if (!ClassUtils.isNullOrBlank( this.filePath ) )  
+	    	   Jogador.setSalvarFoto( "fotoJogador", this.filePath ); 
 		    
 	       
 	       
@@ -278,6 +284,9 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 	       Jogador.setSalvar( "TIMECoach", ValTIMECoach ); 
 	       Jogador.Salvar( ); 
 	       Log.d("BrunoFormJogador","depois de chamar o save");    
+	       
+	       FeedMake FeedMake = new FeedMake(this);
+	       FeedMake.RegistrarFeed("Editou seu cadastro");
 	    
 	 
 }
@@ -575,5 +584,11 @@ public void PosicaoTIMECoachOnClick(View v){
 	        }
 	    }
 
+	}
+
+	@Override
+	public void SaveFeedCallback(Object obj) {
+		// TODO Auto-generated method stub
+		
 	};
 }

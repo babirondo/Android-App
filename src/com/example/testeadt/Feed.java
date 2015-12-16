@@ -1,16 +1,38 @@
 package com.example.testeadt;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.app.ListActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
-public class Feed extends ActionBarActivity {
+public class Feed extends  ListActivity implements CallBackListener {
 
+    public FeedMake FeedMake = new FeedMake(this);
+			
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_feed);
+	protected void onCreate(Bundle savedInstanceFeed) {
+		super.onCreate(savedInstanceFeed);
+		//setContentView(R.layout.activity_feed);
+		
+		SharedPreferences prefs = getApplicationContext().getSharedPreferences("PreferenciasUsuario", MODE_PRIVATE);  	 
+        int PrefIdJogador = prefs.getInt("idJogador", -1);
+		
+		
+		 ListView list1 = (ListView) findViewById(android.R.id.list);
+      
+     	this.FeedMake.setListener(this);
+		this.FeedMake.LoadFeed(ApiURL );
+		setListAdapter(new FeedAdapter (this , this.FeedMake.FeedList));
+
+
 	}
 
 	@Override
@@ -30,5 +52,18 @@ public class Feed extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void callback(Object obj) {
+		// TODO Auto-generated method stub
+		Log.d("FEED", "Callback do feed ACTIVITY");
+		
+	}
+
+	@Override
+	public void SaveFeedCallback(Object obj) {
+		// TODO Auto-generated method stub
+		
 	}
 }

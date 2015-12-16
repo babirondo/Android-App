@@ -7,7 +7,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.testeadt.Feed" xmlns:app="http://schemas.android.com/apk/res/android">
-    
+  
+<ListView android:id="@android:id/list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"/>   
  
     <ImageView
         android:id="@+id/FeedFoto"
@@ -21,6 +24,8 @@
         android:scaleType="fitXY"
         android:src="@drawable/semfoto" />
 
+
+    
     <TextView
         android:id="@+id/FeedNome"    
         android:layout_width="wrap_content"

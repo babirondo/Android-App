@@ -34,6 +34,7 @@ public class API extends AsyncTask<String, String, String> {
 	CallBackListener mListener;
 	Object instance;
 	public boolean Resultado_PUT;
+	public String callback_setado = "default" ;
 	 
 	
     public API(Object obj) {
@@ -132,6 +133,11 @@ public class API extends AsyncTask<String, String, String> {
 
         String urlString=params[0]; // URL to call
         String comando=params[1]; // URL to call
+       
+       
+        
+          
+         
         Log.d("BrunoAPI","entrou no doing"); 
         
         switch (comando){
@@ -159,9 +165,17 @@ public class API extends AsyncTask<String, String, String> {
 
     protected void onPostExecute(String result) {
     	Log.d("BrunoAPI","post execute"  );
-    	 
-      //  Log.d("BrunoAPI-PUT",   Response.getStatusLine().getStatusCode() );
-    	 mListener.callback( this.instance);
+
+    	switch (this.callback_setado)
+    	{
+    		case ("SaveFeed"):
+   			 	mListener.SaveFeedCallback( this.instance);
+    		break;
+    		
+    		default:
+    			 mListener.callback( this.instance);
+    	}
+    	
     	
     }
     
