@@ -15,7 +15,7 @@ public class Home extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 	}
-
+	
 	public void FotoUsuarioOnClick(View v) {
 	
 			// chama outra activity
@@ -27,7 +27,17 @@ public class Home extends ActionBarActivity {
               finish();
 		 
 	}
-	
+	public void FeedOnClick(View v) {
+		
+		// chama outra activity
+		  Intent intent = new Intent();
+          intent.setClass(this, Feed.class);
+
+          startActivity(intent);
+
+          finish();
+	 
+}	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/Snake"
         android:layout_below="@id/timeJogador"
+          android:onClick="FeedOnClick"
         android:src="@drawable/abc_ic_cab_done_holo_light" />
 
     <ImageView

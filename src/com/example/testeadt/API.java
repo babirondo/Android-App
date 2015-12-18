@@ -42,6 +42,27 @@ public class API extends AsyncTask<String, String, String> {
     	instance = obj;
 	}
     
+    /*
+    public boolean LoadFeed(String urlString)
+    {
+    	Log.d("BrunoAPI","Method LoadFeed");
+        String resultToDisplay = "";
+        InputStream in = null;
+        
+        try {
+
+ 
+
+                return true;
+          
+         } catch (Exception e ) {
+
+            Log.e("ERROR",e.toString());
+            return false;
+         } 
+    }
+    */
+    
     public boolean GetRest(String urlString)
     {
     	Log.d("BrunoAPI","get Rest");
@@ -141,11 +162,18 @@ public class API extends AsyncTask<String, String, String> {
         Log.d("BrunoAPI","entrou no doing"); 
         
         switch (comando){
+        /*
+	    	case ("Feed.LoadFeed"):
+	            if (!this.LoadFeed( ) )
+	        		Log.d("BrunoAPI", "houve um erro na captura do JSON");
+	    	break;
+	    	*/
+	
 	    	case ("get"):
 	            if (!this.GetRest(urlString))
 	        		Log.d("BrunoAPI", "houve um erro na captura do JSON");
 	    	break;
-
+	
 	    	case ("put"):
 	            if (!this.PutRest(urlString, JSON.toString())){
 	            	Log.d("BrunoAPI", "houve um erro no salvar dos dados");

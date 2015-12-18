@@ -12,5 +12,10 @@ public interface CallBackListener {
 	public static final int IDPosicao_BackCenter = 3;
 	public static final int IDPosicao_Doritos = 4;
 	public static final int IDPosicao_DoritosCorner = 5;
+
+	public static final int PrefIdJogador = 3;
+	public static final String PrefEmail = "SIQUEIRA@GMAIL.COM";
+	public static final String PrefSenha = "SENHA";
+	
 	 
 }

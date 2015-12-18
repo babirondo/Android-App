@@ -18,6 +18,7 @@ public class FeedAdapter<Feed> extends BaseAdapter {
     private List<FeedMake> FeedList;
     
     public FeedAdapter(Context context, List<FeedMake> FeedList){
+		Log.d("FEEDADAPTER", "Construtor de Feed Adapter");
         this.context = context;
         this.FeedList = FeedList;
     }
@@ -40,7 +41,8 @@ public class FeedAdapter<Feed> extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
        
-      	
+		Log.d("FEEDADAPTER", "GetView de Feed Adapter");
+     	
         // Recupera o estado da posição atual
     	FeedMake FeedMake = FeedList.get(position);
         

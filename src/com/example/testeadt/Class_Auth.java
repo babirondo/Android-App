@@ -24,7 +24,7 @@ public   class Class_Auth implements CallBackListener {
 		    API.setListener(this);
 	    	//logar
 	    	Log.d("BrunoClassAuth","ta no Auth");
-	    	API.execute( apiurl + "Auth/babirondo@gmail.com/senha/" , "get");
+	    	API.execute( apiurl + "Auth/"+PrefEmail+"/"+PrefSenha+"/" , "get");
 	    	Log.d("BrunoClassAuth","voltou pro Auth");
 
 	    }

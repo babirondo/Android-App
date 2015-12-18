@@ -25,9 +25,11 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
 
         SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
         boolean jaLogou = prefs.getBoolean("estaLogado", false);
-        int PrefIdJogador = prefs.getInt("idJogador", -1);
+        int PrefIdJogador_SAVED = 2;//prefs.getInt("idJogador", -1);
 
-         if(jaLogou) {
+        Log.d("BrunoMainActivity","PrefIdJogador_SAVED="+PrefIdJogador_SAVED+" PrefIdJogador="+PrefIdJogador );
+        
+         if(jaLogou && PrefIdJogador_SAVED == PrefIdJogador) {
              // chama a tela inicial
              Log.d("BrunoMainActivity","Logado direto");
         	 Logou();
@@ -77,7 +79,7 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
 			SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putBoolean("estaLogado", true);
-			editor.putInt("idJogador", 2) ;
+			editor.putInt("idJogador", PrefIdJogador) ;
 
 			editor.commit();
 			// chama outra activity 
@@ -91,8 +93,8 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
 	public void Logou()
 	{
 		  Intent intent = new Intent();
-          intent.setClass(this, Feed.class);
-//          intent.setClass(this, Home.class);
+          //intent.setClass(this, Feed.class);
+          intent.setClass(this, Home.class);
 
           startActivity(intent);
 
