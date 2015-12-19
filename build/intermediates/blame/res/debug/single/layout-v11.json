@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout-v11/abc_action_bar_decor.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout-v11/abc_action_bar_decor.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout-v11/abc_simple_decor.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout-v11/abc_simple_decor.xml"
+    }
+]

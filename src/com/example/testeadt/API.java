@@ -35,6 +35,7 @@ public class API extends AsyncTask<String, String, String> {
 	Object instance;
 	public boolean Resultado_PUT;
 	public String callback_setado = "default" ;
+
 	 
 	
     public API(Object obj) {
@@ -74,7 +75,8 @@ public class API extends AsyncTask<String, String, String> {
 
             URL url = new URL(urlString);
 
-            
+
+            Log.d("BrunoAPI", "getrest Rota pedida:" +urlString);
             HttpURLConnection urlConnection = null;
             
             
@@ -95,7 +97,7 @@ public class API extends AsyncTask<String, String, String> {
                     responseStrBuilder.append(inputStr);
                 this.JSON = new JSONObject(responseStrBuilder.toString());
                 
-                Log.d("BrunoAPI", JSON.toString());
+                Log.d("BrunoAPI", "JSON pego pelo get: " +JSON.toString());
 
                 return true;
             	
@@ -132,10 +134,21 @@ public class API extends AsyncTask<String, String, String> {
             httpPut.addHeader("Content-type", "application/json");
             // 8. Execute POST request to the given URL
             HttpResponse response = httpclient.execute(httpPut);
-            System.out.println(   response.getStatusLine().getStatusCode() + " " + Json.toString());
+            System.out.println(response.getStatusLine().getStatusCode() + " enviada ->" + Json.toString());
             
-            if (response.getStatusLine().getStatusCode() == 200)
-            	return true;
+            if (response.getStatusLine().getStatusCode() == 200){
+
+                BufferedReader br = new BufferedReader(new InputStreamReader(  (response.getEntity().getContent())));
+                String output;
+                StringBuilder result = new StringBuilder();
+                while ((output = br.readLine()) != null) {
+                    result.append(output);
+                }
+                this.JSON = new JSONObject(result.toString());
+
+                System.out.println(" Json respondido ->" + this.JSON.toString());
+                return true;
+            }
             else 
             	return false;
              
@@ -181,6 +194,7 @@ public class API extends AsyncTask<String, String, String> {
 	            }
 	            else{
 	            	this.Resultado_PUT = true;
+
 	            }
 	            	
 	        		
@@ -215,7 +229,7 @@ public class API extends AsyncTask<String, String, String> {
     public void Adicionar( String Chave, String Valor)
     {
     	try {
-    		Log.d("BrunoAPI", "Chave "+Chave+" Valor "+Valor);
+    	//	Log.d("BrunoAPI", "Chave "+Chave+" Valor "+Valor);
  			JSON.put( Chave, Valor );//
 						
 		} catch (JSONException e) {

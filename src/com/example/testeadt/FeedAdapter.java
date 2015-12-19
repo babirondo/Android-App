@@ -17,10 +17,10 @@ public class FeedAdapter<Feed> extends BaseAdapter {
     private Context context;
     private List<FeedMake> FeedList;
     
-    public FeedAdapter(Context context, List<FeedMake> FeedList){
+    public FeedAdapter(Context context, List<FeedMake> FeedListArg){
 		Log.d("FEEDADAPTER", "Construtor de Feed Adapter");
         this.context = context;
-        this.FeedList = FeedList;
+        this.FeedList = FeedListArg;
     }
     
     @Override
@@ -47,14 +47,14 @@ public class FeedAdapter<Feed> extends BaseAdapter {
     	FeedMake FeedMake = FeedList.get(position);
         
         // Cria uma instância do layout XML para os objetos correspondentes an View
-        LayoutInflater inflater = (LayoutInflater)
-            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_feed, null);
         
         // Feed Nome
         TextView FeedNome = (TextView)view.findViewById(R.id.FeedNome);
         FeedNome.setText(FeedMake.getFeedNome()  );
-        
+        Log.d("FEEDADAPTER", "GetView de Feed Adapter - nome "+FeedMake.getFeedNome());
+
         // FeedTime
         TextView FeedTime = (TextView)view.findViewById(R.id.FeedTime);
         FeedTime.setText(FeedMake.getFeedTime());

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="unspecified"><source path="/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/assets"/></dataSet><dataSet config="main"><source path="/Users/bsiquei/Documents/workspace/testeadt/assets"><file name="snake.jpg" path="/Users/bsiquei/Documents/workspace/testeadt/assets/snake.jpg"/></source></dataSet><dataSet config="debug"><source path="/Users/bsiquei/Documents/workspace/testeadt/build-types/debug/assets"/></dataSet></merger>

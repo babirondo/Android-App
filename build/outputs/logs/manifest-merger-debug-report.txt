@@ -1,0 +1,95 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:2:1-49:12
+	xmlns:android
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:2:11-69
+	package
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:3:5-35
+	android:versionName
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:5:5-30
+		INJECTED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml
+		INJECTED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:4:5-28
+		INJECTED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml
+		INJECTED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:7:5-9:41
+MERGED from [workspace:appcompat_v7:unspecified] /Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:9:9-38
+	android:minSdkVersion
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:8:9-34
+uses-permission#android.permission.INTERNET
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:12:22-78
+android:uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:14:5-83
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:14:30-80
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:15:5-88
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:15:30-85
+application
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:17:5-47:19
+MERGED from [workspace:appcompat_v7:unspecified] /Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:20:9-41
+	android:allowBackup
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:18:9-35
+	android:icon
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:19:9-45
+	android:theme
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:21:9-40
+activity#com.example.testeadt.MainActivity
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:22:9-30:20
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:24:13-45
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:23:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:25:13-29:29
+action#android.intent.action.MAIN
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:28:27-74
+activity#com.example.testeadt.Home
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:31:9-33:59
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:33:13-56
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:32:13-33
+activity#com.example.testeadt.FormJogador
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:34:9-36:67
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:36:13-64
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:35:13-40
+activity#com.example.testeadt.Feed
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:37:9-39:59
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:39:13-56
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:38:13-33
+activity#com.example.testeadt.LoginActivity
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:40:9-42:60
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:42:13-57
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:41:13-42
+activity#com.example.testeadt.NovoUsuario
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:43:9-46:20
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:45:13-64
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:44:13-40

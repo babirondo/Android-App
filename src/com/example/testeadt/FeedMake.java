@@ -37,6 +37,7 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 	    public List<FeedMake> FeedList = new ArrayList<FeedMake>();
 	    private String FeedFoto;
 	    public ListAdapter FeedAdapter;
+		public String PrefIdJogador;
 	    public ListView mListView; 
 
 	    
@@ -50,7 +51,9 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 	        return FeedNome;
 	    }
 	    public void setFeedNome(String FeedNome) {
-	        this.FeedNome = FeedNome;
+			Log.d("FeedMake","setFeedNome  ..."+FeedNome);
+
+			this.FeedNome = FeedNome;
 	    }
 	    public String getFeedTime() {
 	        return FeedTime;
@@ -72,12 +75,11 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 	        this.FeedFoto = FeedFoto;
 	    }
 	    
-	    public void RegistrarFeed(String Mensagem)
-	    {	  
-
-	       Log.d("FeedMake","Registrando feed");
+	    public void RegistrarFeed(String Mensagem, String PrefIdJogador)
+	    {
+			Log.d("FeedMake","Registrando feed");
  	       this.setSalvar("MENSAGEM",Mensagem ); 
- 	       this.setSalvar( "idJogador", Integer.toString(PrefIdJogador) ); 
+ 	       this.setSalvar( "idJogador",  PrefIdJogador );
 	       this.Salvar( ); 
 	    }
 	    
@@ -91,43 +93,7 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 		@Override
 		public void callback(Object obj) {
 			
-			Log.d("FeedMake","  CallBack callback do laoding feed");
-			try {
-				JSONObject jObj = new JSONObject(API.JSON.toString() );
-				JSONArray JsonPosicoes = jObj.getJSONArray("FEED");
 
-				for(int i = 0; i < JsonPosicoes.length(); i++){
-		            JSONObject MyGod =   JsonPosicoes.getJSONObject(i) ;
-					Log.d("FeedMake","escrevendo feed..."+JsonPosicoes.length());
-
-		            this.setFeedNome( MyGod.getString("NOME") );
-					Log.d("FeedMake","escrevendo setFeedNome..."+JsonPosicoes.length());
-		            this.setFeedTime( MyGod.getString("TIME"));
-					Log.d("FeedMake","escrevendo setFeedTime..."+JsonPosicoes.length());
-		            this.setFeedNew(MyGod.getString("NEW") );
-					Log.d("FeedMake","escrevendo setFeedNew..."+JsonPosicoes.length());
-
-		            this.setFeedFoto(    MyGod.getString("FOTOJOGADOR")   );
-					Log.d("FeedMake","escrevendo setFeedFoto..."+JsonPosicoes.length());
-
-		            this.FeedList.add(this);
-					Log.d("FeedMake","escrevendo FeedList.add..."+JsonPosicoes.length());
-				}
-
-
-		 		ListAdapter a = new FeedAdapter (this , this.FeedList);
-		 		Log.d("FEED", "setListAdapter");
-		 		 //setListAdapter(   a );
-		 	//	this.instance.getClass().
-
-
-
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				Log.d("FEEDMAKE", "Nenhum feed retornado ou erro no parse do json");
-			}
-			
 		}
 	    public void setListener(CallBackListener listener){
 	        this.mListener = listener;
@@ -144,7 +110,7 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 			    this.API.callback_setado = "SaveFeed"; 
 		    	//Salvar
 		    	Log.d("FEEDMAKE"," Salvando dados do feed ");
-		    	this.API.execute( ApiURL + "RegistrarFeed/" , "put" );
+		    	this.API.execute( Globais.ApiURL + "RegistrarFeed/" , "put" );
 		    }
 
 		@Override

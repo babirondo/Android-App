@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/menu/home.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/menu/home.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/menu/feed.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/menu/feed.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/menu/form_jogador.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/menu/form_jogador.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/menu/main.xml"
+    }
+]

@@ -23,32 +23,39 @@ public   class Class_Jogador implements CallBackListener {
 			instance = obj;
 			API = new API(this);
 		}
-		
-		   public void setSalvar( String Chave,  String Valor  ) {
-			    API.Adicionar( Chave, Valor );
-		   }
-		   public void setSalvarFoto( String Chave,  String Valor  ) {
-			   
-			   
-			  
-			   Bitmap bm = BitmapFactory.decodeFile(Valor);
-			   ByteArrayOutputStream baos = new ByteArrayOutputStream();  
-			   bm.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object   
-			   byte[] b = baos.toByteArray(); 
-			   Log.d("BRUNOCLASSJOGADOR", b.toString());
-			 
-					   
-					   
-			    API.Adicionar( Chave, Base64.encodeToString(b, Base64.DEFAULT) );
-		   }
 
-		   public void Salvar(    ) {
-			    API.setListener(this);
-		    	//Salvar
-		    	Log.d("BrunoClassjogador"," Salvando dados do jogador");
-		    	API.execute( ApiURL + "Jogadores/2/" , "put");
-		    }
-	    
+		public void setSalvar( String Chave,  String Valor  ) {
+			API.Adicionar( Chave, Valor );
+		}
+		public void setNovoJogadorSalvar( String Chave,  String Valor  ) {
+			API.Adicionar( Chave, Valor );
+		}
+		public void setSalvarFoto( String Chave,  String Valor  ) {
+
+			Bitmap bm = BitmapFactory.decodeFile(Valor);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			bm.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
+			byte[] b = baos.toByteArray();
+			Log.d("BRUNOCLASSJOGADOR", b.toString());
+
+
+
+			API.Adicionar( Chave, Base64.encodeToString(b, Base64.DEFAULT) );
+		}
+
+	public void Salvar(  String PrefIdJogador  ) {
+		API.setListener(this);
+		//Salvar
+		Log.d("BrunoClassjogador"," Salvando dados do jogador - enviado:"+Globais.ApiURL + "Jogadores/"+PrefIdJogador+"/");
+		API.execute(Globais.ApiURL + "Jogadores/"+PrefIdJogador+"/", "put");
+	}
+	public void SalvarNovoJogador(    ) {
+		API.setListener(this);
+		//Salvar
+		Log.d("BrunoClassjogador"," Salvando novo  jogador");
+		API.execute( Globais.ApiURL  + "Jogadores/New/" , "put");
+	}
+
 	 
 		@Override
 		public void callback(Object obj) {
@@ -63,11 +70,11 @@ public   class Class_Jogador implements CallBackListener {
 	        mListener = listener;
 	      }
 
-		public void CarregarDados() {
+		public void CarregarDados(String PrefIdJogador) {
 			 
 
 			// TODO: criar metodo sincrono pra resgatar os dados 
-			API.GetRest(ApiURL+"Jogador/2/");
+			API.GetRest(Globais.ApiURL+"Jogador/"+PrefIdJogador+"/");
 			
 			
 		}

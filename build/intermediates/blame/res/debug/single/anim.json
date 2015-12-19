@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/anim/abc_fade_in.xml"
+    }
+]

@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity implements CallBackListener {
+public class MainActivity extends ActionBarActivity   {
 
     
     public Class_Auth Auth = new Class_Auth(this);
@@ -25,22 +25,26 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
 
         SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
         boolean jaLogou = prefs.getBoolean("estaLogado", false);
-        int PrefIdJogador_SAVED = 2;//prefs.getInt("idJogador", -1);
+        //int PrefIdJogador_SAVED = prefs.getInt("idJogador", -1);
 
-        Log.d("BrunoMainActivity","PrefIdJogador_SAVED="+PrefIdJogador_SAVED+" PrefIdJogador="+PrefIdJogador );
-        
-         if(jaLogou && PrefIdJogador_SAVED == PrefIdJogador) {
-             // chama a tela inicial
-             Log.d("BrunoMainActivity","Logado direto");
-        	 Logou();
-         }else {
-             // chama a tela de login
-             Auth.setListener(this);
-             Log.d("BrunoMainActivity","antes de chamar  o auth");
-             Auth.Auth( ApiURL ); 
-             Log.d("BrunoMainActivity","depois de chamar");   
-        }        
-       
+        //Log.d("BrunoMainActivity", "PrefIdJogador_SAVED=" + PrefIdJogador_SAVED + " PrefIdJogador=" + PrefIdJogador);
+
+            if(jaLogou  == true ) {
+                // chama a tela inicial
+                Log.d("BrunoMainActivity","Logado direto");
+                Intent intent = new Intent();
+                //intent.setClass(this, Feed.class);
+                intent.setClass(this, Home.class);
+
+                startActivity(intent);
+
+                finish();
+            }else {
+                // chama a tela de login
+                ChamaLogin();
+            }
+
+
  
          
         
@@ -69,43 +73,22 @@ public class MainActivity extends ActionBarActivity implements CallBackListener 
     }
 
 
-	@SuppressLint("ShowToast") @Override
-	public void callback(Object obj) {
-		// TODO Auto-generated method stub
-		Log.d("BrunoMainActivity", "voltou pra main");
-		
-		if (Auth.LoginResultado == true){
-			
-			SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
-			SharedPreferences.Editor editor = prefs.edit();
-			editor.putBoolean("estaLogado", true);
-			editor.putInt("idJogador", PrefIdJogador) ;
-
-			editor.commit();
-			// chama outra activity 
-			Logou();
-		}	
-		else
-			Toast.makeText( this, "Erro no login", Toast.LENGTH_LONG).show();
-	}
-	
-	
-	public void Logou()
-	{
-		  Intent intent = new Intent();
-          //intent.setClass(this, Feed.class);
-          intent.setClass(this, Home.class);
-
-          startActivity(intent);
-
-          finish();
-	 
-	}
 
 
-	@Override
-	public void SaveFeedCallback(Object obj) {
-		// TODO Auto-generated method stub
-		
-	}
+
+
+    public void ChamaLogin()
+    {
+        Intent intent = new Intent();
+        //intent.setClass(this, Feed.class);
+        intent.setClass(this, LoginActivity.class);
+
+        startActivity(intent);
+
+        finish();
+
+    }
+
+
+
 }

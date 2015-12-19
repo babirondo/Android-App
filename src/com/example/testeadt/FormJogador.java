@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -62,6 +63,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 
 	private String filePath = null;
 	public Utils ClassUtils = new Utils();
+	public String PrefIdJogador;
  
 
    
@@ -70,7 +72,11 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_form_jogador);
-				
+
+		SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
+		 PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
+
+
 		// PERMITIR RODAR O GETREST SEM SER ASSINCRONO
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy); 
@@ -94,7 +100,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
     	try {
 
     		Log.d("BrunoFormJogador","Carregando dados o banco se já existentes" );
-            Jogador.CarregarDados(   ); 
+            Jogador.CarregarDados( PrefIdJogador  );
             JSONObject jObj = new JSONObject(Jogador.API.JSON.toString() );
 			
 			if ( jObj.getString("resultado").equalsIgnoreCase("SUCESSO")   ){				
@@ -119,7 +125,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake = (ImageView) findViewById(R.id.Snake);
 						 	Drawable d = getResources().getDrawable(  R.drawable.snake);
-							ValSnake = "1"; d.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake.setImageDrawable(d);	
+							ValSnake = "1"; d.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake.setImageDrawable(d);
 		            	break;
 		            	
 		            	//cornerSNAKE
@@ -127,7 +133,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake1 = (ImageView) findViewById(R.id.SnakeCorner);
 						 	Drawable d1 = getResources().getDrawable(  R.drawable.snakecorner);
-							ValCornerSnake = "1"; d1.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake1.setImageDrawable(d1);	
+							ValCornerSnake = "1"; d1.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake1.setImageDrawable(d1);
 		            	break;
 		            	
 		            	//backcenter
@@ -135,7 +141,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake2 = (ImageView) findViewById(R.id.BackCenter);
 						 	Drawable d2 = getResources().getDrawable(  R.drawable.backcenter);
-							ValBackCenter = "1"; d2.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake2.setImageDrawable(d2);	
+							ValBackCenter = "1"; d2.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake2.setImageDrawable(d2);
 		            	break;
 		            	
 		            	//doritos
@@ -143,7 +149,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake3 = (ImageView) findViewById(R.id.Doritos);
 						 	Drawable d3 = getResources().getDrawable(  R.drawable.doritos);
-							ValDoritos = "1"; d3.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake3.setImageDrawable(d3);	
+							ValDoritos = "1"; d3.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake3.setImageDrawable(d3);
 		            	break;
 		            	
 		            	//doritoscorner
@@ -151,7 +157,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake4 = (ImageView) findViewById(R.id.CornerDoritos);
 						 	Drawable d4 = getResources().getDrawable(  R.drawable.cornerdoritos);
-							ValCornerDoritos = "1"; d4.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake4.setImageDrawable(d4);	
+							ValCornerDoritos = "1"; d4.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake4.setImageDrawable(d4);
 		            	break;
 		            	
 		            	//coach
@@ -159,7 +165,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake5 = (ImageView) findViewById(R.id.Coach);
 						 	Drawable d5 = getResources().getDrawable(  R.drawable.coach);
-							ValCoach = "1"; d5.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake5.setImageDrawable(d5);	
+							ValCoach = "1"; d5.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake5.setImageDrawable(d5);
 		            	break;
 		            }
 		            
@@ -186,7 +192,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake = (ImageView) findViewById(R.id.TIMESnake);
 						 	Drawable d = getResources().getDrawable(  R.drawable.snake);
-							ValTIMESnake = "1"; d.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake.setImageDrawable(d);	
+							ValTIMESnake = "1"; d.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake.setImageDrawable(d);
 		            	break;
 		            	
 		            	//cornerSNAKE
@@ -194,7 +200,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake1 = (ImageView) findViewById(R.id.TIMESnakeCorner);
 						 	Drawable d1 = getResources().getDrawable(  R.drawable.snakecorner);
-							ValTIMECornerSnake = "1"; d1.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake1.setImageDrawable(d1);	
+							ValTIMECornerSnake = "1"; d1.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake1.setImageDrawable(d1);
 		            	break;
 		            	
 		            	//backcenter
@@ -202,7 +208,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake2 = (ImageView) findViewById(R.id.TIMEBackCenter);
 						 	Drawable d2 = getResources().getDrawable(  R.drawable.backcenter);
-							ValTIMEBackCenter = "1"; d2.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake2.setImageDrawable(d2);	
+							ValTIMEBackCenter = "1"; d2.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake2.setImageDrawable(d2);
 		            	break;
 		            	
 		            	//doritos
@@ -210,7 +216,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake3 = (ImageView) findViewById(R.id.TIMEDoritos);
 						 	Drawable d3 = getResources().getDrawable(  R.drawable.doritos);
-							ValTIMEDoritos = "1"; d3.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake3.setImageDrawable(d3);	
+							ValTIMEDoritos = "1"; d3.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake3.setImageDrawable(d3);
 		            	break;
 		            	
 		            	//doritoscorner
@@ -218,7 +224,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake4 = (ImageView) findViewById(R.id.TIMECornerDoritos);
 						 	Drawable d4 = getResources().getDrawable(  R.drawable.cornerdoritos);
-							ValTIMECornerDoritos = "1"; d4.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake4.setImageDrawable(d4);	
+							ValTIMECornerDoritos = "1"; d4.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake4.setImageDrawable(d4);
 		            	break;
 		            	
 		            	//coach
@@ -226,7 +232,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 							//Snake = null;
 						 	ImageView Snake5 = (ImageView) findViewById(R.id.TIMECoach);
 						 	Drawable d5 = getResources().getDrawable(  R.drawable.coach);
-							ValTIMECoach = "1"; d5.setColorFilter(   PosicaoAtiva   , Mode.MULTIPLY );Snake5.setImageDrawable(d5);	
+							ValTIMECoach = "1"; d5.setColorFilter(   Globais.PosicaoAtiva   , Mode.MULTIPLY );Snake5.setImageDrawable(d5);
 		            	break;
 		            }
 			}
@@ -282,11 +288,11 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 	       Jogador.setSalvar( "TIMEDoritosCorner", ValTIMECornerDoritos  ); 
 	       Jogador.setSalvar( "TIMEDoritos", ValTIMEDoritos  ); 
 	       Jogador.setSalvar( "TIMECoach", ValTIMECoach ); 
-	       Jogador.Salvar( ); 
+	       Jogador.Salvar( this.PrefIdJogador );
 	       Log.d("BrunoFormJogador","depois de chamar o save");    
 	       
 	       FeedMake FeedMake = new FeedMake(this);
-	       FeedMake.RegistrarFeed("Editou seu cadastro");
+	       FeedMake.RegistrarFeed("Editou seu cadastro", PrefIdJogador);
 	    
 	 
 }
@@ -305,10 +311,10 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		   
 		   if (ValSnake.equals("1")  ){
 				ValSnake = "0";
-				d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 		   }
 		   else{
-				d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 				ValSnake = "1";			   
 		   }
 		   Snake.setImageDrawable(d);
@@ -323,10 +329,10 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		   
 		   if (ValCornerSnake.equals("1")  ){
 			   ValCornerSnake = "0";
-				d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 		   }
 		   else{
-				d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 				ValCornerSnake = "1";			   
 		   }
 		   Snake.setImageDrawable(d);
@@ -341,10 +347,10 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		   
 		   if (ValBackCenter.equals("1")  ){
 			   ValBackCenter = "0";
-				d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 		   }
 		   else{
-				d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 				ValBackCenter = "1";			   
 		   }
 		   Snake.setImageDrawable(d);
@@ -359,10 +365,10 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		   
 		   if (ValCornerDoritos.equals("1")  ){
 			   ValCornerDoritos = "0";
-				d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 		   }
 		   else{
-				d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 				ValCornerDoritos = "1";			   
 		   }
 		   Snake.setImageDrawable(d);
@@ -377,10 +383,10 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		   
 		   if (ValDoritos.equals("1")  ){
 			   ValDoritos = "0";
-				d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 		   }
 		   else{
-				d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 				ValDoritos = "1";			   
 		   }
 		   Snake.setImageDrawable(d);
@@ -395,10 +401,10 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		   
 		   if (ValCoach.equals("1")  ){
 			   ValCoach = "0";
-				d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 		   }
 		   else{
-				d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+				d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 				ValCoach = "1";			   
 		   }
 		   Snake.setImageDrawable(d);
@@ -414,10 +420,10 @@ public void PosicaoTIMESnakeOnClick(View v){
 	   
 	   if (ValTIMESnake.equals("1")  ){
 			ValTIMESnake = "0";
-			d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 	   }
 	   else{
-			d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 			ValTIMESnake = "1";			   
 	   }
 	   Snake.setImageDrawable(d);
@@ -432,10 +438,10 @@ public void PosicaoTIMESnakeCornerOnClick(View v){
 	   
 	   if (ValTIMECornerSnake.equals("1")  ){
 		   ValTIMECornerSnake = "0";
-			d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 	   }
 	   else{
-			d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 			ValTIMECornerSnake = "1";			   
 	   }
 	   Snake.setImageDrawable(d);
@@ -450,11 +456,11 @@ public void PosicaoTIMEBackCenterOnClick(View v){
 	   
 	   if (ValTIMEBackCenter.equals("1")  ){
 		   ValTIMEBackCenter = "0";
-			d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 	   }
 	   else{
-			d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
-			ValTIMEBackCenter = "1";			   
+			d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
+			ValTIMEBackCenter = "1";
 	   }
 	   Snake.setImageDrawable(d);
 
@@ -468,10 +474,10 @@ public void PosicaoTIMECornerDoritosOnClick(View v){
 	   
 	   if (ValTIMECornerDoritos.equals("1")  ){
 		   ValTIMECornerDoritos = "0";
-			d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 	   }
 	   else{
-			d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 			ValTIMECornerDoritos = "1";			   
 	   }
 	   Snake.setImageDrawable(d);
@@ -486,10 +492,10 @@ public void PosicaoTIMEDoritosOnClick(View v){
 	   
 	   if (ValTIMEDoritos.equals("1")  ){
 		   ValTIMEDoritos = "0";
-			d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 	   }
 	   else{
-			d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 			ValTIMEDoritos = "1";			   
 	   }
 	   Snake.setImageDrawable(d);
@@ -504,10 +510,10 @@ public void PosicaoTIMECoachOnClick(View v){
 	   
 	   if (ValTIMECoach.equals("1")  ){
 		   ValTIMECoach = "0";
-			d.setColorFilter( PosicaoInativa, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoInativa, Mode.MULTIPLY );
 	   }
 	   else{
-			d.setColorFilter( PosicaoAtiva, Mode.MULTIPLY );
+			d.setColorFilter( Globais.PosicaoAtiva, Mode.MULTIPLY );
 			ValTIMECoach = "1";			   
 	   }
 	   Snake.setImageDrawable(d);
@@ -591,4 +597,16 @@ public void PosicaoTIMECoachOnClick(View v){
 		// TODO Auto-generated method stub
 		
 	};
+
+	public void VoltarOnClick(View view) {
+
+		Intent intent = new Intent();
+		intent.setClass(this, Home.class);
+
+		startActivity(intent);
+
+		finish();
+
+
+	}
 }

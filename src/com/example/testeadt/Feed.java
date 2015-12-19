@@ -33,8 +33,8 @@ public class Feed extends  ListActivity implements CallBackListener {
 		StrictMode.setThreadPolicy(policy);
 
 
-		SharedPreferences prefs = getApplicationContext().getSharedPreferences("PreferenciasUsuario", MODE_PRIVATE);  	 
-        int PrefIdJogador = prefs.getInt("idJogador", -1);
+//		SharedPreferences prefs = getApplicationContext().getSharedPreferences("PreferenciasUsuario", MODE_PRIVATE);
+//        int PrefIdJogador = prefs.getString("idJogador", -1);
 		//API API = new API(this);
         this.FeedMake = new FeedMake( this );
 		
@@ -43,7 +43,7 @@ public class Feed extends  ListActivity implements CallBackListener {
 		 
       
 
-		this.FeedMake.LoadFeed(ApiURL);
+		this.FeedMake.LoadFeed(Globais.ApiURL);
 		Log.d("FEED", "Baixou dados do feed via json");
 
 
@@ -54,31 +54,27 @@ public class Feed extends  ListActivity implements CallBackListener {
 
 			for(int i = 0; i < JsonPosicoes.length(); i++){
 				JSONObject MyGod =   JsonPosicoes.getJSONObject(i) ;
-				Log.d("FeedMake","escrevendo feed..."+JsonPosicoes.length());
 
-				this.FeedMake.setFeedNome(MyGod.getString("NOME"));
-				Log.d("FeedMake","escrevendo setFeedNome..."+JsonPosicoes.length());
-				this.FeedMake.setFeedTime(MyGod.getString("TIME"));
-				Log.d("FeedMake","escrevendo setFeedTime..."+JsonPosicoes.length());
-				this.FeedMake.setFeedNew(MyGod.getString("NEW"));
-				Log.d("FeedMake","escrevendo setFeedNew..."+JsonPosicoes.length());
+				FeedMake FeedMakeList = new FeedMake( this );
+				FeedMakeList.setFeedNome(MyGod.getString("NOME"));
+				Log.d("FeedMake", "nome do feed list ..." +MyGod.getString("NOME") );
+				FeedMakeList.setFeedTime(MyGod.getString("TIME"));
+				FeedMakeList.setFeedNew(MyGod.getString("NEW"));
 
-				this.FeedMake.setFeedFoto(MyGod.getString("FOTOJOGADOR"));
-				Log.d("FeedMake","escrevendo setFeedFoto..."+JsonPosicoes.length());
+				FeedMakeList.setFeedFoto(MyGod.getString("FOTOJOGADOR"));
 
-				this.FeedMake.FeedList.add(this.FeedMake);
+				this.FeedMake.FeedList.add(FeedMakeList);
 				Log.d("FeedMake","escrevendo FeedList.add..."+JsonPosicoes.length());
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-
 		Log.d("FEED", "Carregou Feed em memoria, chamando pra adpater pra listar na tela");
 
 
-		ListAdapter a = new FeedAdapter (this , this.FeedMake.FeedList);
+
 		Log.d("FEED", "setListAdapter");
-		setListAdapter(a);
+		setListAdapter(new FeedAdapter (this , this.FeedMake.FeedList));
 		//	this.instance.getClass().
 
 

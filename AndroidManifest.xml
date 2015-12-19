@@ -8,9 +8,11 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -28,15 +30,19 @@
         </activity>
         <activity
             android:name=".Home"
-            android:label="@string/title_activity_home" >
-        </activity>
+            android:label="@string/title_activity_home" />
         <activity
             android:name=".FormJogador"
-            android:label="@string/title_activity_form_jogador" >
-        </activity>
+            android:label="@string/title_activity_form_jogador" />
         <activity
             android:name=".Feed"
-            android:label="@string/title_activity_feed" >
+            android:label="@string/title_activity_feed" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".NovoUsuario"
+            android:label="@string/title_activity_novo_usuario" >
         </activity>
     </application>
 

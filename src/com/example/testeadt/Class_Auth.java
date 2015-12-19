@@ -12,20 +12,21 @@ public   class Class_Auth implements CallBackListener {
 		public boolean LoginResultado;
 		CallBackListener mListener;
 		Object instance;
+	public String idJogador;
 
-		public Class_Auth(Object obj){
+	public Class_Auth(Object obj){
 			instance = obj;
 		}
 		
 		
-	   public void Auth( String apiurl ) {
+	   public void Auth( String apiurl, String Email, String Senha ) {
 	    	
 		   
 		    API.setListener(this);
 	    	//logar
 	    	Log.d("BrunoClassAuth","ta no Auth");
-	    	API.execute( apiurl + "Auth/"+PrefEmail+"/"+PrefSenha+"/" , "get");
-	    	Log.d("BrunoClassAuth","voltou pro Auth");
+	    	API.execute( apiurl + "Auth/"+Email+"/"+Senha+"/" , "get");
+	    	Log.d("BrunoClassAuth","voltou pro Auth"+apiurl + "Auth/"+Email+"/"+Senha+"/");
 
 	    }
 	    public boolean ContinuaAuth()
@@ -36,7 +37,8 @@ public   class Class_Auth implements CallBackListener {
 				if ( jObj.getString("resultado").equalsIgnoreCase("SUCESSO")   ){				
 					String usuario_email = jObj.getString("email");
 					String usuario_nome = jObj.getString("nome");
-					Log.d("BrunoClassAuth", "Login com sucesso" );
+					idJogador = jObj.getString("id_jogador");
+					Log.d("BrunoClassAuth", "Login com sucesso");
 					
 					return true;
 				}
