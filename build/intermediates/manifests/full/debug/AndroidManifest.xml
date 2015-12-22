@@ -42,8 +42,16 @@
             android:label="@string/title_activity_login" />
         <activity
             android:name="com.example.testeadt.NovoUsuario"
-            android:label="@string/title_activity_novo_usuario" >
-        </activity>
+            android:label="@string/title_activity_novo_usuario" />
+        <activity
+            android:name="com.example.testeadt.Pesquisar"
+            android:label="@string/title_activity_pesquisar" />
+        <activity
+            android:name="com.example.testeadt.ResultadoPesquisar"
+            android:label="@string/title_activity_resultado_pesquisar" />
+        <activity
+            android:name="com.example.testeadt.Recomendar"
+            android:label="@string/title_activity_recomendar" />
     </application>
 
 </manifest>

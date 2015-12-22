@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:2:1-49:12
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:2:1-57:12
 	xmlns:android
 		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:2:11-69
 	package
@@ -37,7 +37,7 @@ ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:15:5-
 	android:name
 		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:15:30-85
 application
-ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:17:5-47:19
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:17:5-55:19
 MERGED from [workspace:appcompat_v7:unspecified] /Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:20:9-41
@@ -88,8 +88,26 @@ ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:40:9-
 	android:name
 		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:41:13-42
 activity#com.example.testeadt.NovoUsuario
-ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:43:9-46:20
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:43:9-45:67
 	android:label
 		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:45:13-64
 	android:name
 		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:44:13-40
+activity#com.example.testeadt.Pesquisar
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:46:9-48:64
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:48:13-61
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:47:13-38
+activity#com.example.testeadt.ResultadoPesquisar
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:49:9-51:74
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:51:13-71
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:50:13-47
+activity#com.example.testeadt.Recomendar
+ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:52:9-54:74
+	android:label
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:54:13-62
+	android:name
+		ADDED from /Users/bsiquei/Documents/workspace/testeadt/AndroidManifest.xml:53:13-39

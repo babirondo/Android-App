@@ -4,12 +4,12 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_ab_stacked_transparent_light_holo.9.png"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_tab_selected_holo.9.png",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_tab_selected_holo.9.png"
-    },
-    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_solid_light_holo.9.png",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_ab_solid_light_holo.9.png"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_tab_selected_holo.9.png",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_tab_selected_holo.9.png"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_search_api_holo_light.png",
@@ -24,12 +24,12 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_tab_unselected_pressed_holo.9.png"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_right_default_holo_dark.9.png",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_textfield_search_right_default_holo_dark.9.png"
-    },
-    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_menu_dropdown_panel_holo_dark.9.png",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_menu_dropdown_panel_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_right_default_holo_dark.9.png",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_textfield_search_right_default_holo_dark.9.png"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_solid_dark_holo.9.png",
@@ -64,12 +64,12 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_stacked_transparent_dark_holo.9.png",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_ab_stacked_transparent_dark_holo.9.png"
-    },
-    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_default_holo_dark.9.png",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_textfield_search_default_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ab_stacked_transparent_dark_holo.9.png",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/drawable-mdpi-v4/abc_ab_stacked_transparent_dark_holo.9.png"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_right_selected_holo_light.9.png",

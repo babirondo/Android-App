@@ -73,9 +73,9 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_form_jogador);
 
-		SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
-		 PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
-
+			SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
+			PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
+			Log.d("pesquisar", "ABrindo jogador da memoria: " + PrefIdJogador );
 
 		// PERMITIR RODAR O GETREST SEM SER ASSINCRONO
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -261,7 +261,7 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		
  		
 		   Jogador.setListener(this);
-	       Log.d("BrunoFormJogador","antes de chamar  o save"+NomeJogador.getText().toString());
+	       Log.d("BrunoFormJogador", "antes de chamar  o save" + NomeJogador.getText().toString());
 	       Jogador.setSalvar( "nomeJogador", NomeJogador.getText().toString() ); 
 	       Jogador.setSalvar( "Num", Num.getText().toString() ); 
 	       Jogador.setSalvar( "Time", Time.getText().toString() ); 
@@ -283,13 +283,13 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 		  
 
 	       Jogador.setSalvar( "TIMESnake", ValTIMESnake ); 
-	       Jogador.setSalvar( "TIMESnakeCorner", ValTIMECornerSnake ); 
+	       Jogador.setSalvar("TIMESnakeCorner", ValTIMECornerSnake);
 	       Jogador.setSalvar( "TIMEBackCenter", ValTIMEBackCenter  ); 
 	       Jogador.setSalvar( "TIMEDoritosCorner", ValTIMECornerDoritos  ); 
 	       Jogador.setSalvar( "TIMEDoritos", ValTIMEDoritos  ); 
 	       Jogador.setSalvar( "TIMECoach", ValTIMECoach ); 
 	       Jogador.Salvar( this.PrefIdJogador );
-	       Log.d("BrunoFormJogador","depois de chamar o save");    
+	       Log.d("BrunoFormJogador", "depois de chamar o save");
 	       
 	       FeedMake FeedMake = new FeedMake(this);
 	       FeedMake.RegistrarFeed("Editou seu cadastro", PrefIdJogador);
@@ -299,10 +299,69 @@ public class FormJogador extends ActionBarActivity implements CallBackListener{
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.form_jogador, menu);
+		super.onCreateOptionsMenu(menu);
+
+		menu.add(Menu.NONE, Globais.MENU_HOME, Menu.NONE, Globais.MENU_HOME_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_PROFILE, Menu.NONE, Globais.MENU_PROFILE_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_FEED, Menu.NONE, Globais.MENU_FEED_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_PESQUISAR, Menu.NONE, Globais.MENU_PESQUISAR_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_LOGOFF, Menu.NONE, Globais.MENU_LOGOFF_GLOBAIS);
 		return true;
 	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		Intent intent = new Intent();
+		switch(item.getItemId())
+		{
+			case Globais.MENU_FEED:
+				intent.setClass(this, Feed.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+
+			case Globais.MENU_PROFILE:
+
+				intent.setClass(this, FormJogador.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_HOME:
+
+				intent.setClass(this, Home.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_PESQUISAR:
+
+				intent.setClass(this, Pesquisar.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_LOGOFF:
+				this.getSharedPreferences("PreferenciasUsuario", 0).edit().clear().commit();
+
+				intent.setClass(this, MainActivity.class);
+
+				startActivity(intent);
+
+				finish();
+
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
+
 	
 	public void PosicaoSnakeOnClick(View v){
 	 
@@ -521,17 +580,6 @@ public void PosicaoTIMECoachOnClick(View v){
 	   System.out.println( "TIMECoach "+ValTIMECoach  );
 }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 
 
 	@Override

@@ -8,6 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.testeadt.Home" >
 
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -19,6 +20,29 @@
         android:src="@drawable/semfoto"  />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PWR: "
+
+        android:id="@+id/LabelForca"
+        android:layout_alignParentTop="@+id/FotoUsuario"
+
+        android:layout_toRightOf="@+id/FotoUsuario" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="80"
+        android:id="@+id/Forca"
+
+        android:layout_alignTop="@+id/LabelForca"
+        android:layout_toRightOf="@+id/LabelForca"
+        />
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,6 +52,7 @@
 
         android:id="@+id/Num"
         android:layout_alignParentTop="@+id/FotoUsuario"
+        android:layout_below="@+id/LabelForca"
 
         android:layout_toRightOf="@+id/FotoUsuario" />
     <TextView
@@ -220,4 +245,26 @@
         android:id="@+id/avaliacoes"
         android:layout_below="@id/conhecimento"
         android:layout_alignParentRight="true"/>
+
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recomendar este Jogador"
+        android:id="@+id/Recomendar"
+        android:layout_alignParentBottom="true"
+        android:onClick="Recomendar"
+        android:layout_alignParentLeft="true"  />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;&lt; Voltar"
+        android:id="@+id/voltar_pesquisar"
+        android:layout_alignParentBottom="true"
+        android:onClick="VoltarPesquisar"
+        android:layout_alignParentRight="true"  />
 </RelativeLayout>

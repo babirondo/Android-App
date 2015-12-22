@@ -3,6 +3,7 @@ package com.example.testeadt;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
@@ -22,7 +23,9 @@ import org.json.JSONObject;
 public class Feed extends  ListActivity implements CallBackListener {
 
     public FeedMake FeedMake;// = new FeedMake( this );
-			
+
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceFeed) {
 		super.onCreate(savedInstanceFeed);
@@ -84,21 +87,67 @@ public class Feed extends  ListActivity implements CallBackListener {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.feed, menu);
+		super.onCreateOptionsMenu(menu);
+
+		menu.add(Menu.NONE, Globais.MENU_HOME, Menu.NONE, Globais.MENU_HOME_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_PROFILE, Menu.NONE, Globais.MENU_PROFILE_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_FEED, Menu.NONE, Globais.MENU_FEED_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_PESQUISAR, Menu.NONE, Globais.MENU_PESQUISAR_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_LOGOFF, Menu.NONE, Globais.MENU_LOGOFF_GLOBAIS);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		Intent intent = new Intent();
+		switch(item.getItemId())
+		{
+			case Globais.MENU_FEED:
+				intent.setClass(this, Feed.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+
+			case Globais.MENU_PROFILE:
+
+				intent.setClass(this, FormJogador.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_HOME:
+
+				intent.setClass(this, Home.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_PESQUISAR:
+
+				intent.setClass(this, Pesquisar.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_LOGOFF:
+				this.getSharedPreferences("PreferenciasUsuario", 0).edit().clear().commit();
+
+				intent.setClass(this, MainActivity.class);
+
+				startActivity(intent);
+
+				finish();
+
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

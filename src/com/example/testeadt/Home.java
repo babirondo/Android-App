@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 	private String filePath = null;
 	public Utils ClassUtils = new Utils();
 	public String PrefIdJogador;
+	public int VeioPeloBuscar = 0;
 
 
 
@@ -59,16 +61,32 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy);
 
-		SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
-		PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
+		Intent intent = getIntent();
+		if(intent.hasExtra("IdJogadorPesquisar")){
+			Log.d("pesquisar", "ABrindo jogador da pesquisa MSG: " + getIntent().getExtras().getString("IdJogadorPesquisar", "").toString());
+			PrefIdJogador = getIntent().getExtras().getString("IdJogadorPesquisar", "").toString();
+			VeioPeloBuscar = 1;
+
+		}
+		else{
+			SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
+			PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
+			Log.d("pesquisar", "ABrindo jogador da memoria: " + PrefIdJogador );
+			VeioPeloBuscar = 0;
+
+			findViewById(R.id.voltar_pesquisar).setVisibility(View.GONE);
+			findViewById(R.id.Recomendar).setVisibility(View.GONE);
+
+
+
+
+		}
 
 		ImageView fotoJogador = (ImageView) findViewById(R.id.FotoUsuario);
 
 		NomeJogador = (TextView) findViewById(R.id.nomeJogador);
 		Num = (TextView) findViewById(R.id.Num);
 		Time = (TextView) findViewById(R.id.timeJogador);
-
-
 
 		Jogador.setListener(this);
 
@@ -108,7 +126,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 						//cornerSNAKE
 						case("2"):
 							//Snake = null;
-							ImageView Snake1 = (ImageView) findViewById(R.id.SnakeCorner);
+							ImageView Snake1 = (ImageView) findViewById(R.id.CornerSnake);
 							Drawable d1 = getResources().getDrawable(  R.drawable.snakecorner);
 							ValCornerSnake = "1"; d1.setColorFilter(   Globais.PosicaoAtiva   , PorterDuff.Mode.MULTIPLY );Snake1.setImageDrawable(d1);
 							break;
@@ -203,25 +221,73 @@ public class Home extends ActionBarActivity implements CallBackListener {
           startActivity(intent);
 
           finish();
-	 
-}	
+
+	}
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.home, menu);
+		super.onCreateOptionsMenu(menu);
+
+		menu.add(Menu.NONE, Globais.MENU_HOME, Menu.NONE, Globais.MENU_HOME_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_PROFILE, Menu.NONE, Globais.MENU_PROFILE_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_FEED, Menu.NONE, Globais.MENU_FEED_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_PESQUISAR, Menu.NONE, Globais.MENU_PESQUISAR_GLOBAIS);
+		menu.add(Menu.NONE, Globais.MENU_LOGOFF, Menu.NONE, Globais.MENU_LOGOFF_GLOBAIS);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		Intent intent = new Intent();
+		switch(item.getItemId())
+		{
+			case Globais.MENU_FEED:
+				intent.setClass(this, Feed.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+
+			case Globais.MENU_PROFILE:
+
+				intent.setClass(this, FormJogador.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_HOME:
+
+				intent.setClass(this, Home.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_PESQUISAR:
+
+				intent.setClass(this, Pesquisar.class);
+
+				startActivity(intent);
+
+				finish();
+				return true;
+			case Globais.MENU_LOGOFF:
+				this.getSharedPreferences("PreferenciasUsuario", 0).edit().clear().commit();
+
+				intent.setClass(this, MainActivity.class);
+
+				startActivity(intent);
+
+				finish();
+
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -231,6 +297,44 @@ public class Home extends ActionBarActivity implements CallBackListener {
 
 	@Override
 	public void SaveFeedCallback(Object obj) {
+
+	}
+
+	public void VoltarPesquisar(View view) {
+		Intent intent = new Intent(this, ResultadoPesquisar.class);
+		//intent.putExtra();
+		intent.putExtra("Nome", getIntent().getExtras().getString("Nome", "").toString());
+		intent.putExtra("Num", getIntent().getExtras().getString("Num", "").toString());
+		intent.putExtra("Time", getIntent().getExtras().getString("Time", "").toString());
+		intent.putExtra("Altura", getIntent().getExtras().getString("Altura", "").toString());
+		intent.putExtra("Peso", getIntent().getExtras().getString("Peso", "").toString());
+		intent.putExtra("Snake", getIntent().getExtras().getString("Snake", "").toString());
+		intent.putExtra("CornerSnake", getIntent().getExtras().getString("CornerSnake", "").toString());
+		intent.putExtra("BackCenter", getIntent().getExtras().getString("BackCenter", "").toString());
+		intent.putExtra("Doritos", getIntent().getExtras().getString("Doritos", "").toString());
+		intent.putExtra("CornerDoritos", getIntent().getExtras().getString("CornerDoritos", "").toString());
+		intent.putExtra("Coach", getIntent().getExtras().getString("Coach", "").toString());
+		intent.putExtra("ForcaDe", getIntent().getExtras().getString("ForcaDe", "").toString());
+		intent.putExtra("ForcaAte", getIntent().getExtras().getString("ForcaAte", "").toString());
+
+		intent.setClass(this, ResultadoPesquisar.class);
+
+		startActivity(intent);
+
+		finish();
+
+	}
+
+	public void Recomendar(View view) {
+		Intent intent = new Intent(this, Recomendar.class);
+		//intent.putExtra();
+		intent.putExtra("IdJogadorRecomendar", PrefIdJogador );
+
+		intent.setClass(this, Recomendar.class);
+
+		startActivity(intent);
+
+		finish();
 
 	}
 }

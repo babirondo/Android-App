@@ -8,28 +8,28 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_bar_decor_overlay.xml",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_overlay.xml"
-    },
-    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_bar_decor.xml",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_decor.xml"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item.xml",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_mode_close_item.xml"
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_bar_decor_overlay.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_overlay.xml"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_menu_layout.xml"
-    },
-    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_mode_close_item.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_menu_layout.xml"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_simple_decor.xml",
@@ -40,8 +40,16 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_title_item.xml"
     },
     {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/activity_recomendar.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/layout/activity_recomendar.xml"
+    },
+    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/activity_pesquisar.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/layout/activity_pesquisar.xml"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
@@ -52,12 +60,16 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_include.xml"
     },
     {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_bar_tabbar.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_tabbar.xml"
+    },
+    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_action_bar_tabbar.xml",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_action_bar_tabbar.xml"
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/activity_resultado_pesquisar.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/layout/activity_resultado_pesquisar.xml"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
@@ -80,12 +92,12 @@
         "source": "/Users/bsiquei/Documents/workspace/testeadt/res/layout/activity_form_jogador.xml"
     },
     {
-        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/activity_login.xml",
-        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/layout/activity_login.xml"
-    },
-    {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
         "source": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/exploded-aar/workspace/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/Users/bsiquei/Documents/workspace/testeadt/res/layout/activity_login.xml"
     },
     {
         "merged": "/Users/bsiquei/Documents/workspace/testeadt/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",

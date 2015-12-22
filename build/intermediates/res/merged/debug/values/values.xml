@@ -150,6 +150,9 @@
     <string name="title_activity_home">Home</string>
     <string name="title_activity_login">Sign in</string>
     <string name="title_activity_novo_usuario">NovoUsuario</string>
+    <string name="title_activity_pesquisar">Pesquisar</string>
+    <string name="title_activity_recomendar">Recomendar</string>
+    <string name="title_activity_resultado_pesquisar">ResultadoPesquisar</string>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
