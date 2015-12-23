@@ -22,6 +22,10 @@ public   class Class_Jogador implements CallBackListener {
 		public Class_Jogador(Object obj){
 			instance = obj;
 			API = new API(this);
+
+
+			API.setListener( this );
+
 		}
 
 		public void setSalvar( String Chave,  String Valor  ) {
@@ -43,17 +47,24 @@ public   class Class_Jogador implements CallBackListener {
 			API.Adicionar( Chave, Base64.encodeToString(b, Base64.DEFAULT) );
 		}
 
+	public void Recomendar(  String IdJogadorRecomendar  ) {
+		API.setListener(this);
+		//Salvar
+		Log.d("BrunoClassjogador"," RECOMENDANDO JOGADOR - enviado:"+Globais.ApiURL + "Jogador/Recomendar/"+IdJogadorRecomendar+"/");
+		API.execute(Globais.ApiURL + "Jogador/Recomendar/" + IdJogadorRecomendar + "/", "put");
+	}
+
 	public void Salvar(  String PrefIdJogador  ) {
 		API.setListener(this);
 		//Salvar
-		Log.d("BrunoClassjogador"," Salvando dados do jogador - enviado:"+Globais.ApiURL + "Jogadores/"+PrefIdJogador+"/");
-		API.execute(Globais.ApiURL + "Jogadores/"+PrefIdJogador+"/", "put");
+		Log.d("BrunoClassjogador"," Salvando dados do jogador - enviado:"+Globais.ApiURL + "Jogador/Alterar/"+PrefIdJogador+"/");
+		API.execute(Globais.ApiURL + "Jogador/Alterar/"+PrefIdJogador+"/", "put");
 	}
 	public void SalvarNovoJogador(    ) {
 		API.setListener(this);
 		//Salvar
 		Log.d("BrunoClassjogador"," Salvando novo  jogador");
-		API.execute( Globais.ApiURL  + "Jogadores/New/" , "put");
+		API.execute( Globais.ApiURL  + "Jogador/New/" , "put");
 	}
 
 	 

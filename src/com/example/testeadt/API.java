@@ -240,7 +240,7 @@ public class API extends AsyncTask<String, String, String> {
          
     	
     	
-    	System.out.println(JSON.toString());
+    	//System.out.println(JSON.toString());
     }
 
     
