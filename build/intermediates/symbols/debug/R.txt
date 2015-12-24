@@ -281,9 +281,11 @@ int id NovoUsuarioForm 0x7f0b0071
 int id Num 0x7f0b0043
 int id Peso 0x7f0b0047
 int id PesquisarFoto 0x7f0b0084
-int id PesquisarNew 0x7f0b0087
+int id PesquisarLabelPWR 0x7f0b0086
+int id PesquisarNew 0x7f0b0089
 int id PesquisarNome 0x7f0b0085
-int id PesquisarTime 0x7f0b0086
+int id PesquisarPWR 0x7f0b0087
+int id PesquisarTime 0x7f0b0088
 int id Recomendar 0x7f0b0067
 int id Registrar 0x7f0b0078
 int id Salvar 0x7f0b0059
@@ -310,7 +312,7 @@ int id action_context_bar 0x7f0b001d
 int id action_menu_divider 0x7f0b0015
 int id action_menu_presenter 0x7f0b0016
 int id action_mode_close_button 0x7f0b0024
-int id action_settings 0x7f0b0088
+int id action_settings 0x7f0b008a
 int id activity_chooser_view_content 0x7f0b0025
 int id always 0x7f0b000f
 int id avaliacoes 0x7f0b0060

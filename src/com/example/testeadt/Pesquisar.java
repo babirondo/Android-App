@@ -27,11 +27,6 @@ public class Pesquisar extends ActionBarActivity {
         if(intent.hasExtra("NotFound")){
             Log.d("pesquisar", "NOTFOUND MSG: " + getIntent().getExtras().getString("NotFound", "").toString());
             Toast.makeText( this, getIntent().getExtras().getString("NotFound", "").toString(), Toast.LENGTH_LONG).show();
-
-            //Bundle bd = getIntent().getExtras();
-            //if(!bd.getString("NotFound").equals(null)){
-         //       nomeUsuario = bd.getString("nomeUsuario");
-            //}
         }
 
         //if ( getIntent().getExtras().getString("NotFound", "").isEmpty() ){

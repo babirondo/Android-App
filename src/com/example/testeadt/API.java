@@ -31,7 +31,7 @@ import android.util.Log;
 public class API extends AsyncTask<String, String, String> {
 	
 	public JSONObject JSON = new JSONObject();//responseStrBuilder.toString()
-	CallBackListener mListener;
+	Object  mListener;
 	Object instance;
 	public boolean Resultado_PUT;
 	public String callback_setado = "default" ;
@@ -120,21 +120,14 @@ public class API extends AsyncTask<String, String, String> {
         Log.d("BrunoAPI","Put Rest");
 
         try {
-            // 1. create HttpClient
             HttpClient httpclient = new DefaultHttpClient();
-            // 2. make POST request to the given URL
-
             HttpPut httpPut = new HttpPut(urlString);
-           
             StringEntity se = new StringEntity(Json);
-            // 6. set httpPost Entity
             httpPut.setEntity(se);
-            // 7. Set some headers to inform server about the type of the content   
             httpPut.addHeader("Accept", "application/json");
             httpPut.addHeader("Content-type", "application/json");
-            // 8. Execute POST request to the given URL
             HttpResponse response = httpclient.execute(httpPut);
-            System.out.println(response.getStatusLine().getStatusCode() + " enviada ->" + Json.toString());
+            System.out.println(urlString + " Resposta: "+ response.getStatusLine().getStatusCode() + " Json enviado ->" + Json.toString());
             
             if (response.getStatusLine().getStatusCode() == 200){
 
@@ -208,22 +201,23 @@ public class API extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
     	Log.d("BrunoAPI","post execute"  );
 
+
     	switch (this.callback_setado)
     	{
     		case ("SaveFeed"):
-   			 	mListener.SaveFeedCallback( this.instance);
-    		break;
+                ((CallBackListener) mListener).SaveFeedCallback(this.instance);
+                break;
     		
     		default:
-    			 mListener.callback( this.instance);
+                ((CallBackListener) mListener).callback( this.instance);
     	}
     	
     	
     }
     
 
-    public void setListener(CallBackListener listener){
-      mListener = listener;
+    public void setListener(Object listener){
+      mListener = (CallBackListener) listener;
     }
     
     public void Adicionar( String Chave, String Valor)

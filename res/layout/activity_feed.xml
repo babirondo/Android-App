@@ -7,11 +7,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.testeadt.Feed" xmlns:app="http://schemas.android.com/apk/res/android">
-  
-<ListView android:id="@android:id/list"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"/>   
- 
+
+
+    <ListView android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
+
+
     <ImageView
         android:id="@+id/FeedFoto"
         android:layout_width="wrap_content"
@@ -19,15 +22,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:maxWidth="30dp"
-        android:maxHeight="30dp"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
         android:scaleType="fitXY"
         android:src="@drawable/semfoto" />
 
 
-    
+
     <TextView
-        android:id="@+id/FeedNome"    
+        android:id="@+id/FeedNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/FeedFoto"
@@ -35,7 +38,7 @@
         android:text="Fulano das Cove"  />
 
     <TextView
-        android:id="@+id/FeedTime"    
+        android:id="@+id/FeedTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/FeedNome"
@@ -43,10 +46,11 @@
         android:text="Time do Joao"  />
 
     <TextView
-        android:id="@+id/FeedNew"    
+        android:id="@+id/FeedNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/FeedFoto"
         android:layout_alignParentLeft="true"
-        android:text="Fulaninho fez isso e isso...."  />    
+        android:text="Fulaninho fez isso e isso...."  />
+
 </RelativeLayout>

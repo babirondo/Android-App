@@ -21,10 +21,10 @@ public   class Class_Jogador implements CallBackListener {
 
 		public Class_Jogador(Object obj){
 			instance = obj;
-			API = new API(this);
+			API = new API(obj);
 
 
-			API.setListener( this );
+			API.setListener( obj );
 
 		}
 
@@ -48,7 +48,7 @@ public   class Class_Jogador implements CallBackListener {
 		}
 
 	public void Recomendar(  String IdJogadorRecomendar  ) {
-		API.setListener(this);
+		//API.setListener(instance);
 		//Salvar
 		Log.d("BrunoClassjogador"," RECOMENDANDO JOGADOR - enviado:"+Globais.ApiURL + "Jogador/Recomendar/"+IdJogadorRecomendar+"/");
 		API.execute(Globais.ApiURL + "Jogador/Recomendar/" + IdJogadorRecomendar + "/", "put");

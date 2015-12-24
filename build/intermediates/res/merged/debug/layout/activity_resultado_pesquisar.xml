@@ -39,6 +39,22 @@
         android:text="Fulano das Cove"  />
 
     <TextView
+        android:id="@+id/PesquisarLabelPWR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_toLeftOf="@+id/PesquisarPWR"
+        android:text="PWR:"  />
+    <TextView
+        android:id="@+id/PesquisarPWR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+
+        android:layout_alignTop="@+id/PesquisarLabelPWR"
+        android:text=" 33"  />
+
+    <TextView
         android:id="@+id/PesquisarTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

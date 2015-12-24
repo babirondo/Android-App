@@ -32,6 +32,15 @@ public class ResultadoPesquisar extends ListActivity {
         SharedPreferences prefs = getApplicationContext().getSharedPreferences("PreferenciasUsuario", MODE_PRIVATE);
         String PrefIdJogador = prefs.getString("idJogador", "-1");
 
+  //      Intent intent = new Intent( );
+//        Intent intent = new Intent(this, Pesquisar.class);
+        Intent intent = getIntent();
+
+        Log.d("resultadopesquisar", " ONCREATE RESULTADO PESQUISAR -" + getIntent().getExtras().getString("RecomendacaoOK", "").toString()) ;
+        if(intent.hasExtra("RecomendacaoOK")){
+            Log.d("pesquisar", "Recomendacao Salva OK: " + getIntent().getExtras().getString("RecomendacaoOK", "").toString());
+            Toast.makeText( this, getIntent().getExtras().getString("RecomendacaoOK", "").toString(), Toast.LENGTH_LONG).show();
+        }
 
         Pesquisar.setCampo("Nome", getIntent().getExtras().getString("Nome", "").toString());
         Pesquisar.setCampo("Num", getIntent().getExtras().getString("Num", "").toString());
@@ -70,10 +79,12 @@ public class ResultadoPesquisar extends ListActivity {
 
                 Class_Pesquisar PesquisarList = new Class_Pesquisar( this );
                 PesquisarList.setPesquisarNome(MyGod.getString("NOME"));
-                Log.d("Pesquisar", "nome do feed list ..." + MyGod.getString("NOME"));
+             //   Log.d("Pesquisar", "nome do feed list ..." + MyGod.getString("NOME"));
                 PesquisarList.setPesquisarTime(MyGod.getString("TIME"));
                 PesquisarList.setIdJogador(MyGod.getString("ID_JOGADOR"));
                 PesquisarList.setPesquisarForca(MyGod.getString("NEW"));
+                PesquisarList.setPesquisarPWR(MyGod.getString("PWR"));
+
 
                 PesquisarList.setPesquisarFoto(MyGod.getString("FOTOJOGADOR"));
 
@@ -83,7 +94,6 @@ public class ResultadoPesquisar extends ListActivity {
         } catch (JSONException e) {
             e.printStackTrace();
 
-            Intent intent = new Intent(this, Pesquisar.class);
             intent.putExtra("NotFound", "Nenhum jogador encontrado");
 
             intent.setClass(this, Pesquisar.class);

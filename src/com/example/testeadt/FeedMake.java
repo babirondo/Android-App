@@ -43,8 +43,8 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 	    
 		public FeedMake(Object obj){
 			this.instance = obj;
-			this.API =   new API(this );
-			this.API.setListener( this );
+			this.API =   new API(obj );
+			this.API.setListener( obj );
 		}
 	 
 		public String getFeedNome() {
@@ -78,9 +78,9 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 	    public void RegistrarFeed(String Mensagem, String PrefIdJogador)
 	    {
 			Log.d("FeedMake","Registrando feed");
- 	       this.setSalvar("MENSAGEM",Mensagem ); 
- 	       this.setSalvar( "idJogador",  PrefIdJogador );
-	       this.Salvar( ); 
+			this.setSalvar("MENSAGEM",Mensagem );
+			this.setSalvar( "idJogador",  PrefIdJogador );
+	       	this.Salvar( );
 	    }
 	    
 	    public   void LoadFeed(String apiurl )
@@ -92,7 +92,8 @@ public class FeedMake extends ActionBarActivity implements CallBackListener {
 	    }
 		@Override
 		public void callback(Object obj) {
-			
+			Log.d("FeedMake","  Callback do Salvar Feed");
+
 
 		}
 	    public void setListener(CallBackListener listener){

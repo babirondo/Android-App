@@ -59,6 +59,10 @@ public class PesquisarAdapter<Pesquisar> extends BaseAdapter {
         TextView PesquisarTime = (TextView)view.findViewById(R.id.PesquisarTime);
         PesquisarTime.setText(Class_Pesquisar.getPesquisarTime());
 
+        // PWR
+        TextView PesquisarPWR = (TextView)view.findViewById(R.id.PesquisarPWR );
+        PesquisarPWR.setText(Class_Pesquisar.getPesquisarPWR() );
+
         // PesquisarNew
         TextView PesquisarNew = (TextView)view.findViewById(R.id.PesquisarNew);
         PesquisarNew.setText( Class_Pesquisar.getPesquisarNew() );
@@ -76,8 +80,6 @@ public class PesquisarAdapter<Pesquisar> extends BaseAdapter {
 
         return view;
     }
-
-
 
 
 

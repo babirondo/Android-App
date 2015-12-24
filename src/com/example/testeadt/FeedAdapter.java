@@ -58,7 +58,8 @@ public class FeedAdapter<Feed> extends BaseAdapter {
         // FeedTime
         TextView FeedTime = (TextView)view.findViewById(R.id.FeedTime);
         FeedTime.setText(FeedMake.getFeedTime());
-        
+
+
         // FeedNew
         TextView FeedNew = (TextView)view.findViewById(R.id.FeedNew);
         FeedNew.setText( FeedMake.getFeedNew() );

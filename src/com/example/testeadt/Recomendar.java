@@ -2,16 +2,34 @@ package com.example.testeadt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Recomendar extends ActionBarActivity implements CallBackListener {
     public String IdJogadorRecomendar;
     public String PrefIdJogador;
+    private TextView NomeJogador;
+    private TextView Num;
+    private TextView Time;
+    private TextView Forca;
+    public Class_Jogador Jogador = new Class_Jogador(this);
+    public Utils ClassUtils = new Utils();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +41,44 @@ public class Recomendar extends ActionBarActivity implements CallBackListener {
 
 
         IdJogadorRecomendar = getIntent().getExtras().getString("IdJogadorRecomendar", "").toString();
+
+        ImageView fotoJogador = (ImageView) findViewById(R.id.FotoUsuario);
+
+        NomeJogador = (TextView) findViewById(R.id.nomeJogador);
+        Num = (TextView) findViewById(R.id.Num);
+        Time = (TextView) findViewById(R.id.timeJogador);
+        Forca = (TextView) findViewById(R.id.Forca);
+
+        Jogador.setListener(this);
+
+        //TODO: Consultar dados para resgatar os dados já salvos
+
+        try {
+
+            Log.d("RECOMENDAR", "Carregando dados o banco se já existentes");
+            Jogador.CarregarDados( IdJogadorRecomendar  );
+            JSONObject jObj = new JSONObject(Jogador.API.JSON.toString() );
+
+            if ( jObj.getString("resultado").equalsIgnoreCase("SUCESSO")   ){
+
+                Foto Foto = new Foto();
+                NomeJogador.setText(   jObj.getString("Nome") );
+                Num.setText(   jObj.getString("Num") );
+                Time.setText(jObj.getString("IDTime"));
+                Forca.setText(jObj.getString("PWR"));
+
+
+                if (!ClassUtils.isNullOrBlank(jObj.getString("fotoJogador") ) )
+                    fotoJogador.setImageBitmap( Foto.decodificar(    jObj.getString("fotoJogador") )  );
+            }
+            else{
+                Log.d("RECOMENDAR", "Sem dados salvos"  );
+            }
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            Log.e("RECOMENDAR", "Error no loading dos dados: " + e.toString());
+        }
 
     }
 
@@ -109,17 +165,44 @@ public class Recomendar extends ActionBarActivity implements CallBackListener {
 
 
         FeedMake FeedMake = new FeedMake(this);
-        FeedMake.RegistrarFeed("Fez uma recomendação de um Jogador", PrefIdJogador);
+        FeedMake.RegistrarFeed("Fez uma recomendacao de um Jogador", PrefIdJogador);
 
     }
 
     @Override
     public void callback(Object obj) {
+        Log.d("Recomendar", " callback do recomendar");
+
+        Intent intent = new Intent(Recomendar.this, ResultadoPesquisar.class);
+        //intent.putExtra("IdJogadorPesquisar", item.getIdJogador()  );
+        intent.putExtra("RecomendacaoOK", "Recomendação salva com sucesso"  );
+
+        intent.putExtra("Nome", getIntent().getExtras().getString("Nome", "").toString());
+        intent.putExtra("Num", getIntent().getExtras().getString("Num", "").toString());
+        intent.putExtra("Time", getIntent().getExtras().getString("Time", "").toString());
+        intent.putExtra("Altura", getIntent().getExtras().getString("Altura", "").toString());
+        intent.putExtra("Peso", getIntent().getExtras().getString("Peso", "").toString());
+        intent.putExtra("Snake", getIntent().getExtras().getString("Snake", "").toString());
+        intent.putExtra("CornerSnake", getIntent().getExtras().getString("CornerSnake", "").toString());
+        intent.putExtra("BackCenter", getIntent().getExtras().getString("BackCenter", "").toString());
+        intent.putExtra("Doritos", getIntent().getExtras().getString("Doritos", "").toString());
+        intent.putExtra("CornerDoritos", getIntent().getExtras().getString("CornerDoritos", "").toString());
+        intent.putExtra("Coach", getIntent().getExtras().getString("Coach", "").toString());
+        intent.putExtra("ForcaDe", getIntent().getExtras().getString("ForcaDe", "").toString());
+        intent.putExtra("ForcaAte", getIntent().getExtras().getString("ForcaAte", "").toString());
+
+        intent.setClass(Recomendar.this, ResultadoPesquisar.class);
+
+        startActivity(intent);
+
+        finish();
+
 
     }
 
     @Override
     public void SaveFeedCallback(Object obj) {
+        Log.d("Recomendar"," SAVEFEED Callback do Salvar Feed");
 
     }
 }

@@ -862,9 +862,11 @@ containing a value of this type.
         public static final int Num=0x7f0b0043;
         public static final int Peso=0x7f0b0047;
         public static final int PesquisarFoto=0x7f0b0084;
-        public static final int PesquisarNew=0x7f0b0087;
+        public static final int PesquisarLabelPWR=0x7f0b0086;
+        public static final int PesquisarNew=0x7f0b0089;
         public static final int PesquisarNome=0x7f0b0085;
-        public static final int PesquisarTime=0x7f0b0086;
+        public static final int PesquisarPWR=0x7f0b0087;
+        public static final int PesquisarTime=0x7f0b0088;
         public static final int Recomendar=0x7f0b0067;
         public static final int Registrar=0x7f0b0078;
         public static final int Salvar=0x7f0b0059;
@@ -891,7 +893,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0b0015;
         public static final int action_menu_presenter=0x7f0b0016;
         public static final int action_mode_close_button=0x7f0b0024;
-        public static final int action_settings=0x7f0b0088;
+        public static final int action_settings=0x7f0b008a;
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int always=0x7f0b000f;
         public static final int avaliacoes=0x7f0b0060;

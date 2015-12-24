@@ -26,6 +26,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 	TextView NomeJogador = null;
 	TextView Num = null;
 	TextView Time = null;
+	TextView Forca = null;
 
 
 	public Class_Jogador Jogador = new Class_Jogador(this);
@@ -87,6 +88,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		NomeJogador = (TextView) findViewById(R.id.nomeJogador);
 		Num = (TextView) findViewById(R.id.Num);
 		Time = (TextView) findViewById(R.id.timeJogador);
+		Forca = (TextView) findViewById(R.id.Forca);
 
 		Jogador.setListener(this);
 
@@ -104,6 +106,8 @@ public class Home extends ActionBarActivity implements CallBackListener {
 				NomeJogador.setText(   jObj.getString("Nome") );
 				Num.setText(   jObj.getString("Num") );
 				Time.setText(   jObj.getString("IDTime") );
+				Forca.setText(   jObj.getString("PWR") );
+
 
 				if (!ClassUtils.isNullOrBlank(jObj.getString("fotoJogador") ) )
 					fotoJogador.setImageBitmap( Foto.decodificar(    jObj.getString("fotoJogador") )  );
@@ -329,6 +333,22 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		Intent intent = new Intent(this, Recomendar.class);
 		//intent.putExtra();
 		intent.putExtra("IdJogadorRecomendar", PrefIdJogador );
+
+	//	intent.putExtra("RecomendacaoOK", "Recomendação salva com sucesso!");
+		intent.putExtra("Nome", getIntent().getExtras().getString("Nome", "").toString());
+		intent.putExtra("Num", getIntent().getExtras().getString("Num", "").toString());
+		intent.putExtra("Time", getIntent().getExtras().getString("Time", "").toString());
+		intent.putExtra("Altura", getIntent().getExtras().getString("Altura", "").toString());
+		intent.putExtra("Peso", getIntent().getExtras().getString("Peso", "").toString());
+		intent.putExtra("Snake", getIntent().getExtras().getString("Snake", "").toString());
+		intent.putExtra("CornerSnake", getIntent().getExtras().getString("CornerSnake", "").toString());
+		intent.putExtra("BackCenter", getIntent().getExtras().getString("BackCenter", "").toString());
+		intent.putExtra("Doritos", getIntent().getExtras().getString("Doritos", "").toString());
+		intent.putExtra("CornerDoritos", getIntent().getExtras().getString("CornerDoritos", "").toString());
+		intent.putExtra("Coach", getIntent().getExtras().getString("Coach", "").toString());
+		intent.putExtra("ForcaDe", getIntent().getExtras().getString("ForcaDe", "").toString());
+		intent.putExtra("ForcaAte", getIntent().getExtras().getString("ForcaAte", "").toString());
+
 
 		intent.setClass(this, Recomendar.class);
 

@@ -24,6 +24,8 @@ public class Class_Pesquisar extends ActionBarActivity implements CallBackListen
     public   API API ;
     private String PesquisarNome;
     private String PesquisarForca;
+    private String pesquisarPWR ;
+
     private String IdJogador;
     private String PesquisarTime;
     CallBackListener mListener;
@@ -104,16 +106,22 @@ public class Class_Pesquisar extends ActionBarActivity implements CallBackListen
 
     public void setCampo( String Chave,  String Valor  ) {
    //     Log.d("CPesquisar"," Atributo Salvo in-memory do Pesquisar ");
-        this.API.Adicionar( Chave, Valor );
+        this.API.Adicionar(Chave, Valor);
     }
 
 
 
     @Override
     public void SaveFeedCallback(Object obj) {
-        Log.d("CPesquisar"," SAVEPesquisar Callback do Salvar Pesquisar");
+        Log.d("CPesquisar", " SAVEPesquisar Callback do Salvar Pesquisar");
 
     }
 
+    public void setPesquisarPWR(String pesquisarPWR) {
+        this.pesquisarPWR = pesquisarPWR;
+    }
+    public String getPesquisarPWR( ) {
+        return this.pesquisarPWR;
+    }
 
 }
