@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 	public Utils ClassUtils = new Utils();
 	public String PrefIdJogador;
 	public int VeioPeloBuscar = 0;
-
+	private TextView Avaliacoes;
 
 
 	@Override
@@ -61,6 +62,15 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		// PERMITIR RODAR O GETREST SEM SER ASSINCRONO
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy);
+
+
+		RatingBar notaBackCenter = (RatingBar) findViewById(R.id.notaBackCenter);
+		RatingBar notaSnake = (RatingBar) findViewById(R.id.notaSnake);
+		RatingBar notaCornerSnake = (RatingBar) findViewById(R.id.notaCornerSnake);
+		RatingBar notaDoritos = (RatingBar) findViewById(R.id.notaDoritos);
+		RatingBar notaCornerDoritos = (RatingBar) findViewById(R.id.notaCornerDoritos);
+		RatingBar notaCoach = (RatingBar) findViewById(R.id.notaCoach);
+
 
 		Intent intent = getIntent();
 		if(intent.hasExtra("IdJogadorPesquisar")){
@@ -78,9 +88,13 @@ public class Home extends ActionBarActivity implements CallBackListener {
 			findViewById(R.id.voltar_pesquisar).setVisibility(View.GONE);
 			findViewById(R.id.Recomendar).setVisibility(View.GONE);
 
-
-
-
+		//	android:isIndicator="false"
+			notaBackCenter.setIsIndicator(true);
+			notaSnake.setIsIndicator(true);
+			notaCornerDoritos.setIsIndicator(true);
+			notaCornerSnake.setIsIndicator(true);
+			notaDoritos.setIsIndicator(true);
+			notaCoach.setIsIndicator(true);
 		}
 
 		ImageView fotoJogador = (ImageView) findViewById(R.id.FotoUsuario);
@@ -89,6 +103,8 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		Num = (TextView) findViewById(R.id.Num);
 		Time = (TextView) findViewById(R.id.timeJogador);
 		Forca = (TextView) findViewById(R.id.Forca);
+		Avaliacoes = (TextView) findViewById(R.id.avaliacoes);
+
 
 		Jogador.setListener(this);
 
@@ -103,10 +119,19 @@ public class Home extends ActionBarActivity implements CallBackListener {
 			if ( jObj.getString("resultado").equalsIgnoreCase("SUCESSO")   ){
 
 				Foto Foto = new Foto();
-				NomeJogador.setText(   jObj.getString("Nome") );
-				Num.setText(   jObj.getString("Num") );
-				Time.setText(   jObj.getString("IDTime") );
-				Forca.setText(   jObj.getString("PWR") );
+				NomeJogador.setText("  " + jObj.getString("Nome"));
+				Num.setText("#" + jObj.getString("Num"));
+				Time.setText(jObj.getString("Time"));
+				Forca.setText(jObj.getString("PWR"));
+				Avaliacoes.setText(jObj.getString("Avaliacoes") + " Avaliações");
+
+
+				notaBackCenter.setNumStars(jObj.getInt("notaBackCenter"));
+				notaSnake.setNumStars(jObj.getInt("notaSnake"));
+				notaCornerDoritos.setNumStars(jObj.getInt("notaCornerDoritos"));
+				notaCornerSnake.setNumStars( jObj.getInt("notaCornerSnake"));
+				notaDoritos.setNumStars( jObj.getInt("notaDoritos"));
+				notaCoach.setNumStars( jObj.getInt("notaCoach"));
 
 
 				if (!ClassUtils.isNullOrBlank(jObj.getString("fotoJogador") ) )

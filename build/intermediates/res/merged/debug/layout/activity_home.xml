@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,7 +15,7 @@
         android:id="@+id/FotoUsuario"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:onClick="FotoUsuarioOnClick"
+
         android:clickable="true"
         android:src="@drawable/semfoto"  />
 
@@ -30,6 +30,9 @@
         android:layout_alignParentTop="@+id/FotoUsuario"
 
         android:layout_toRightOf="@+id/FotoUsuario" />
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,8 +78,7 @@
         android:layout_toRightOf="@id/FotoUsuario"
         android:layout_below="@id/Num"
         android:layout_alignLeft="@id/Num"
-     />
-
+        />
 
 
 
@@ -84,16 +86,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Snake"
-        android:onClick="FeedOnClick"
+
         android:adjustViewBounds="true"
         android:maxWidth="70dp"
         android:maxHeight="70dp"
         android:scaleType="fitXY"
 
         android:src="@drawable/snake"
-        android:layout_alignBottom="@+id/Coach"
+        android:layout_below="@+id/CornerDoritos"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="19dp" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaSnake"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:clickable="true"
+        android:isIndicator="false"
+        android:numStars = "5"
+        android:rating   = "0"
+        android:layout_alignTop="@id/Snake"
+        android:layout_toRightOf="@id/Snake"  />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaCornerSnake"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:numStars = "5"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:rating   = "0"
+        android:layout_alignTop="@+id/CornerSnake"
+        android:layout_alignLeft="@+id/notaDoritos"
+        android:layout_alignStart="@+id/notaDoritos" />
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -105,9 +135,13 @@
 
         android:scaleType="fitXY"
         android:src="@drawable/snakecorner"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/Snake"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignTop="@+id/BackCenter"
+        android:layout_toRightOf="@+id/LabelForca"
+        android:layout_toEndOf="@+id/LabelForca" />
+
+
+
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -119,8 +153,28 @@
 
         android:scaleType="fitXY"
         android:src="@drawable/backcenter"
-        android:layout_alignTop="@+id/CornerDoritos"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/FotoUsuario"
+        android:layout_alignRight="@+id/gunfight"
+        android:layout_alignEnd="@+id/gunfight"
+        android:layout_marginTop="49dp" />
+
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaBackCenter"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:numStars = "5"
+        android:rating   = "0"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:layout_alignTop="@id/BackCenter"
+        android:layout_toRightOf="@id/BackCenter"  />
+
+
+
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -130,23 +184,54 @@
         android:maxWidth="70dp"
         android:id="@+id/CornerDoritos"
         android:src="@drawable/cornerdoritos"
-        android:layout_below="@+id/Snake"
-        android:layout_alignLeft="@+id/Doritos"
-        android:layout_alignStart="@+id/Doritos" />
+        android:layout_alignTop="@+id/Doritos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaCornerDoritos"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:numStars = "5"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:rating   = "0"
+        android:layout_alignTop="@id/CornerDoritos"
+        android:layout_toRightOf="@id/CornerDoritos"  />
+
+
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:maxWidth="70dp"
-        android:scaleType="fitXY"
-
         android:id="@+id/Doritos"
         android:src="@drawable/doritos"
-        android:layout_marginTop="74dp"
-        android:layout_below="@+id/FotoUsuario"
-        android:layout_alignRight="@+id/avaliacoes"
-        android:layout_alignEnd="@+id/avaliacoes" />
+        android:layout_below="@+id/CornerSnake"
+        android:layout_alignLeft="@+id/Coach"
+        android:layout_alignStart="@+id/Coach"
+        android:layout_marginTop="18dp" />
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaDoritos"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:numStars = "5"
+        android:rating   = "0"
+        android:layout_alignTop="@id/Doritos"
+        android:layout_toRightOf="@id/Doritos"  />
+
+
+
+
+
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -156,12 +241,28 @@
         android:maxWidth="70dp"
         android:scaleType="fitXY"
 
-        android:onClick="LogoffOnClick"
         android:src="@drawable/coach"
-        android:layout_alignTop="@+id/Doritos"
-        android:layout_centerHorizontal="true" />
 
 
+        android:layout_toRightOf="@+id/LabelForca"
+        android:layout_alignBottom="@+id/Snake"
+        android:layout_toStartOf="@+id/voltar_pesquisar"
+        android:layout_alignTop="@+id/Snake"
+        android:layout_alignRight="@+id/Recomendar"
+        android:layout_alignEnd="@+id/Recomendar" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaCoach"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:numStars = "5"
+        android:rating   = "0"
+        android:layout_alignTop="@id/Coach"
+        android:layout_toRightOf="@id/Coach"  />
 
 
 
@@ -171,11 +272,23 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Gun Fight"
         android:id="@+id/gunfight"
-        android:layout_below="@+id/CornerSnake"
+        android:layout_below="@+id/velocidade"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="38dp" />
+        android:layout_alignParentStart="true" />
 
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaGunfight"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:numStars = "5"
+        android:rating   = "0"
+        android:layout_alignTop="@id/gunfight"
+        android:layout_toRightOf="@id/gunfight"  />
 
 
 
@@ -184,9 +297,23 @@
         android:layout_height="wrap_content"
         android:text="Velocidade"
         android:id="@+id/velocidade"
-        android:layout_below="@id/gunfight"
+        android:layout_below="@+id/conhecimento"
         android:layout_alignParentLeft="true"
-        />
+        android:layout_alignParentStart="true" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaVelocidade"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:clickable="true"
+        android:isIndicator="false"
+
+        android:numStars = "5"
+        android:rating   = "0"
+        android:layout_alignTop="@id/velocidade"
+        android:layout_toRightOf="@id/velocidade"  />
+
 
 
 
@@ -196,46 +323,24 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Conhecimento de Jogo"
         android:id="@+id/conhecimento"
-        android:layout_below="@id/velocidade"
-        android:layout_alignParentLeft="true"  />
-
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/notaVelocidade"
-        style = "?android:attr/ratingBarStyleSmall"
-        android:numStars = "5"
-        android:rating   = "3"
-        android:layout_toRightOf="@id/velocidade"
-        android:layout_alignTop="@id/velocidade"
-        android:layout_alignParentLeft="@id/velocidade"
-        />
-
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/notaGunfight"
-        style = "?android:attr/ratingBarStyleSmall"
-        android:numStars = "5"
-        android:rating   = "3"
-        android:layout_toRightOf="@id/gunfight"
-        android:layout_alignTop="@id/gunfight"
-        android:layout_alignParentLeft="@id/gunfight"
-
-        />
-
+        android:layout_below="@+id/Coach"
+        android:layout_marginTop="22dp" />
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/notaConhecimento"
+        android:clickable="true"
+        android:isIndicator="false"
+
         style = "?android:attr/ratingBarStyleSmall"
         android:numStars = "5"
-        android:rating   = "3"
-        android:layout_toRightOf="@id/conhecimento"
+        android:rating   = "0"
         android:layout_alignTop="@id/conhecimento"
-        android:layout_alignParentLeft="@id/conhecimento"
+        android:layout_toRightOf="@id/conhecimento"  />
 
-        />
+
+
+
 
 
     <TextView
@@ -243,9 +348,9 @@
         android:layout_height="wrap_content"
         android:text="9 Avaliações"
         android:id="@+id/avaliacoes"
-        android:layout_below="@id/conhecimento"
-        android:layout_alignParentRight="true"/>
-
+        android:layout_below="@+id/gunfight"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 
@@ -257,6 +362,7 @@
         android:id="@+id/Recomendar"
         android:layout_alignParentBottom="true"
         android:onClick="Recomendar"
+
         android:layout_alignParentLeft="true"  />
 
     <Button
@@ -265,6 +371,25 @@
         android:text="&lt;&lt; Voltar"
         android:id="@+id/voltar_pesquisar"
         android:layout_alignParentBottom="true"
-        android:onClick="VoltarPesquisar"
+
         android:layout_alignParentRight="true"  />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atributos"
+        android:id="@+id/sel_atributos"
+        android:layout_above="@+id/notaBackCenter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:id="@+id/sel_time"
+        android:layout_below="@+id/FotoUsuario"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
