@@ -2,14 +2,11 @@ package com.example.testeadt;
 
 import java.io.ByteArrayOutputStream;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONArray;
-import org.json.JSONException;
+
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.text.Editable;
+
 import android.util.Base64;
 import android.util.Log;
 

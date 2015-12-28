@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.testeadt.Time">
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/FotoTime"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+
+        android:clickable="true"
+        android:src="@drawable/semfoto"  />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PWR: "
+
+        android:id="@+id/LabelForca"
+        android:layout_alignParentTop="@+id/FotoTime"
+
+        android:layout_toRightOf="@+id/FotoTime" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="80"
+        android:id="@+id/Forca"
+
+        android:layout_alignTop="@+id/LabelForca"
+        android:layout_toRightOf="@+id/LabelForca"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mega Play Paintball"
+        android:id="@+id/Time"
+        android:layout_below="@id/Forca"
+
+        android:layout_toRightOf="@+id/FotoTime"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Jogadores"
+        android:id="@+id/labelJogadores"
+        android:layout_below="@id/FotoTime"
+        />
+
+    <ListView android:id="@android:id/list"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/labelJogadores"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/JogadorFoto"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="30dp"
+        android:maxHeight="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/semfoto"
+        android:layout_below="@id/labelJogadores"
+        />
+
+
+
+    <TextView
+        android:id="@+id/NomeJogador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/JogadorFoto"
+        android:layout_toRightOf="@+id/JogadorFoto"
+        android:text="Fulano das Cove"  />
+
+    <TextView
+        android:id="@+id/Label_JogadorPWR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_toLeftOf="@+id/JogadorPWR"
+        android:layout_alignTop="@+id/NomeJogador"
+        android:text="PWR:"  />
+    <TextView
+        android:id="@+id/JogadorPWR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignRight="@android:id/list"
+        android:layout_alignTop="@+id/Label_JogadorPWR"
+
+
+        android:text=" 33"  />
+
+
+</RelativeLayout>

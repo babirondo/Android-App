@@ -49,9 +49,7 @@
         <activity
             android:name="com.example.testeadt.ResultadoPesquisar"
             android:label="@string/title_activity_resultado_pesquisar" />
-        <activity
-            android:name="com.example.testeadt.Recomendar"
-            android:label="@string/title_activity_recomendar" />
+        <activity android:name="com.example.testeadt.Time" />
     </application>
 
 </manifest>

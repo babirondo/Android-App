@@ -55,6 +55,7 @@ public class ResultadoPesquisar extends ListActivity {
         Pesquisar.setCampo("Coach", getIntent().getExtras().getString("Coach", "").toString());
         Pesquisar.setCampo("ForcaDe", getIntent().getExtras().getString("ForcaDe", "").toString());
         Pesquisar.setCampo("ForcaAte", getIntent().getExtras().getString("ForcaAte", "").toString());
+        Pesquisar.setCampo("IdJogadorLogado", PrefIdJogador );
 
         // PERMITIR RODAR O GETREST SEM SER ASSINCRONO
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -67,7 +68,7 @@ public class ResultadoPesquisar extends ListActivity {
         ListView list1 = (ListView) findViewById(android.R.id.list);
        // Pesquisar.mListView = (ListView) findViewById(android.R.id.list);
 
-        Pesquisar.Search(Globais.ApiURL, Pesquisar.API.JSON.toString());
+        Pesquisar.Search(Globais.ApiURL, Pesquisar.API.JSON.toString() );
         Log.d("Pesquisar", "Pesquisando por jogadores");
 
         try {

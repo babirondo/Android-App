@@ -87,10 +87,11 @@ public class Class_Pesquisar extends ActionBarActivity implements CallBackListen
     }
 
 
-    public   void Search(String apiurl, String Json )
+    public   void Search(String apiurl, String Json  )
     {
 
-        Log.d("PesquisarJogador","Pesquisando Jogador...");
+
+        Log.d("PesquisarJogador", "Pesquisando Jogador...");
         this.API.PutRest(apiurl + "Jogadores/Pesquisar/", Json  );
 
     }
@@ -105,7 +106,7 @@ public class Class_Pesquisar extends ActionBarActivity implements CallBackListen
 
 
     public void setCampo( String Chave,  String Valor  ) {
-   //     Log.d("CPesquisar"," Atributo Salvo in-memory do Pesquisar ");
+        Log.d("CPesquisar"," Atributo "+Chave+" =  "+Valor);
         this.API.Adicionar(Chave, Valor);
     }
 

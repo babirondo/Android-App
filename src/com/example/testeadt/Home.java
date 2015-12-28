@@ -52,6 +52,8 @@ public class Home extends ActionBarActivity implements CallBackListener {
 	public String PrefIdJogador;
 	public int VeioPeloBuscar = 0;
 	private TextView Avaliacoes;
+	private String PrefIdJogadorRecomendar;
+	private String AbrirForm;
 
 
 	@Override
@@ -71,21 +73,31 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		RatingBar notaCornerDoritos = (RatingBar) findViewById(R.id.notaCornerDoritos);
 		RatingBar notaCoach = (RatingBar) findViewById(R.id.notaCoach);
 
+		RatingBar notaVelocidade = (RatingBar) findViewById(R.id.notaVelocidade);
+		RatingBar notaConhecimento = (RatingBar) findViewById(R.id.notaConhecimento);
+		RatingBar notaGunfight = (RatingBar) findViewById(R.id.notaGunfight);
+
+
+
+
+		SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
+		PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
 
 		Intent intent = getIntent();
 		if(intent.hasExtra("IdJogadorPesquisar")){
-			Log.d("pesquisar", "ABrindo jogador da pesquisa MSG: " + getIntent().getExtras().getString("IdJogadorPesquisar", "").toString());
-			PrefIdJogador = getIntent().getExtras().getString("IdJogadorPesquisar", "").toString();
+			Log.d("HOME", "ABrindo jogador da pesquisa MSG: " + getIntent().getExtras().getString("IdJogadorPesquisar", "").toString());
+			PrefIdJogadorRecomendar = getIntent().getExtras().getString("IdJogadorPesquisar", "").toString();
 			VeioPeloBuscar = 1;
 
+			AbrirForm = PrefIdJogadorRecomendar;
 		}
 		else{
-			SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
-			PrefIdJogador = prefs.getString("idJogador","#NadaEncontrado").toString();
-			Log.d("pesquisar", "ABrindo jogador da memoria: " + PrefIdJogador );
+			AbrirForm = PrefIdJogador ;
+
+			Log.d("pesquisar", "ABrindo jogador da memoria: " + AbrirForm );
 			VeioPeloBuscar = 0;
 
-			findViewById(R.id.voltar_pesquisar).setVisibility(View.GONE);
+
 			findViewById(R.id.Recomendar).setVisibility(View.GONE);
 
 		//	android:isIndicator="false"
@@ -95,6 +107,12 @@ public class Home extends ActionBarActivity implements CallBackListener {
 			notaCornerSnake.setIsIndicator(true);
 			notaDoritos.setIsIndicator(true);
 			notaCoach.setIsIndicator(true);
+
+
+			notaVelocidade.setIsIndicator(true);
+			notaGunfight.setIsIndicator(true);
+			notaConhecimento.setIsIndicator(true);
+
 		}
 
 		ImageView fotoJogador = (ImageView) findViewById(R.id.FotoUsuario);
@@ -113,7 +131,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		try {
 
 			Log.d("BRUNOHOME", "Carregando dados o banco se já existentes");
-			Jogador.CarregarDados( PrefIdJogador  );
+			Jogador.CarregarDados( AbrirForm  );
 			JSONObject jObj = new JSONObject(Jogador.API.JSON.toString() );
 
 			if ( jObj.getString("resultado").equalsIgnoreCase("SUCESSO")   ){
@@ -126,12 +144,15 @@ public class Home extends ActionBarActivity implements CallBackListener {
 				Avaliacoes.setText(jObj.getString("Avaliacoes") + " Avaliações");
 
 
-				notaBackCenter.setNumStars(jObj.getInt("notaBackCenter"));
-				notaSnake.setNumStars(jObj.getInt("notaSnake"));
-				notaCornerDoritos.setNumStars(jObj.getInt("notaCornerDoritos"));
-				notaCornerSnake.setNumStars( jObj.getInt("notaCornerSnake"));
-				notaDoritos.setNumStars( jObj.getInt("notaDoritos"));
-				notaCoach.setNumStars( jObj.getInt("notaCoach"));
+				notaBackCenter.setRating(jObj.getInt("notaBackCenter"));
+				notaSnake.setRating(jObj.getInt("notaSnake"));
+				notaCornerDoritos.setRating(jObj.getInt("notaCornerDoritos"));
+				notaCornerSnake.setRating(jObj.getInt("notaCornerSnake"));
+				notaDoritos.setRating(jObj.getInt("notaDoritos"));
+				notaCoach.setRating(jObj.getInt("notaCoach"));
+				notaVelocidade.setRating(jObj.getInt("notaVelocidade"));
+				notaGunfight.setRating(jObj.getInt("notaGunfight"));
+				notaConhecimento.setRating(jObj.getInt("notaConhecimento"));
 
 
 				if (!ClassUtils.isNullOrBlank(jObj.getString("fotoJogador") ) )
@@ -214,44 +235,8 @@ public class Home extends ActionBarActivity implements CallBackListener {
 		}
 	}
 	
-	public void FotoUsuarioOnClick(View v) {
-	
-			// chama outra activity
-			  Intent intent = new Intent();
-              intent.setClass(this, FormJogador.class);
-
-              startActivity(intent);
-
-              finish();
-		 
-	}
-	public void LogoffOnClick(View v) {
-
-		//SharedPreferences prefs = getSharedPreferences("PreferenciasUsuario", 0);
-
-		this.getSharedPreferences("PreferenciasUsuario", 0).edit().clear().commit();
 
 
-		Intent intent = new Intent();
-		intent.setClass(this, MainActivity.class);
-
-		startActivity(intent);
-
-		finish();
-
-	}
-
-	public void FeedOnClick(View v) {
-		
-		// chama outra activity
-		  Intent intent = new Intent();
-          intent.setClass(this, Feed.class);
-
-          startActivity(intent);
-
-          finish();
-
-	}
 
 
 	@Override
@@ -321,7 +306,7 @@ public class Home extends ActionBarActivity implements CallBackListener {
 
 	@Override
 	public void callback(Object obj) {
-
+		Toast.makeText( this, "Recomendação salva com sucesso!"  , Toast.LENGTH_LONG).show();
 	}
 
 	@Override
@@ -329,53 +314,42 @@ public class Home extends ActionBarActivity implements CallBackListener {
 
 	}
 
-	public void VoltarPesquisar(View view) {
-		Intent intent = new Intent(this, ResultadoPesquisar.class);
-		//intent.putExtra();
-		intent.putExtra("Nome", getIntent().getExtras().getString("Nome", "").toString());
-		intent.putExtra("Num", getIntent().getExtras().getString("Num", "").toString());
-		intent.putExtra("Time", getIntent().getExtras().getString("Time", "").toString());
-		intent.putExtra("Altura", getIntent().getExtras().getString("Altura", "").toString());
-		intent.putExtra("Peso", getIntent().getExtras().getString("Peso", "").toString());
-		intent.putExtra("Snake", getIntent().getExtras().getString("Snake", "").toString());
-		intent.putExtra("CornerSnake", getIntent().getExtras().getString("CornerSnake", "").toString());
-		intent.putExtra("BackCenter", getIntent().getExtras().getString("BackCenter", "").toString());
-		intent.putExtra("Doritos", getIntent().getExtras().getString("Doritos", "").toString());
-		intent.putExtra("CornerDoritos", getIntent().getExtras().getString("CornerDoritos", "").toString());
-		intent.putExtra("Coach", getIntent().getExtras().getString("Coach", "").toString());
-		intent.putExtra("ForcaDe", getIntent().getExtras().getString("ForcaDe", "").toString());
-		intent.putExtra("ForcaAte", getIntent().getExtras().getString("ForcaAte", "").toString());
 
-		intent.setClass(this, ResultadoPesquisar.class);
 
-		startActivity(intent);
 
-		finish();
+	public void Recomendar(View view) {
+		Class_Jogador Jogador = new Class_Jogador(this);
+		Jogador.setSalvar("ID_RECOMENDANDO", PrefIdJogador);
+		Jogador.setSalvar("notaSnake", String.valueOf(((RatingBar) findViewById(R.id.notaSnake)).getRating()));
+		Jogador.setSalvar("notaDoritos", String.valueOf(((RatingBar) findViewById(R.id.notaDoritos)).getRating()));
+		Jogador.setSalvar("notaBackCenter", String.valueOf(((RatingBar) findViewById(R.id.notaBackCenter)).getRating()));
+		Jogador.setSalvar("notaCoach", String.valueOf(((RatingBar) findViewById(R.id.notaCoach)).getRating()));
+		Jogador.setSalvar("notaCornerSnake", String.valueOf(((RatingBar) findViewById(R.id.notaCornerSnake)).getRating()));
+		Jogador.setSalvar("notaCornerDoritos", String.valueOf(((RatingBar) findViewById(R.id.notaCornerDoritos)).getRating()));
+
+		Jogador.setSalvar("notaConhecimento", String.valueOf(((RatingBar) findViewById(R.id.notaConhecimento)).getRating()));
+		Jogador.setSalvar("notaVelocidade", String.valueOf(((RatingBar) findViewById(R.id.notaVelocidade)).getRating()));
+		Jogador.setSalvar("notaGunfight", String.valueOf(((RatingBar) findViewById(R.id.notaGunfight)).getRating()));
+		Jogador.Recomendar(PrefIdJogadorRecomendar);
+
+
+		FeedMake FeedMake = new FeedMake(this);
+		FeedMake.RegistrarFeed("Fez uma recomendacao de um Jogador", PrefIdJogador);
+
+
+
+
 
 	}
 
-	public void Recomendar(View view) {
-		Intent intent = new Intent(this, Recomendar.class);
-		//intent.putExtra();
-		intent.putExtra("IdJogadorRecomendar", PrefIdJogador );
 
-	//	intent.putExtra("RecomendacaoOK", "Recomendação salva com sucesso!");
-		intent.putExtra("Nome", getIntent().getExtras().getString("Nome", "").toString());
-		intent.putExtra("Num", getIntent().getExtras().getString("Num", "").toString());
-		intent.putExtra("Time", getIntent().getExtras().getString("Time", "").toString());
-		intent.putExtra("Altura", getIntent().getExtras().getString("Altura", "").toString());
-		intent.putExtra("Peso", getIntent().getExtras().getString("Peso", "").toString());
-		intent.putExtra("Snake", getIntent().getExtras().getString("Snake", "").toString());
-		intent.putExtra("CornerSnake", getIntent().getExtras().getString("CornerSnake", "").toString());
-		intent.putExtra("BackCenter", getIntent().getExtras().getString("BackCenter", "").toString());
-		intent.putExtra("Doritos", getIntent().getExtras().getString("Doritos", "").toString());
-		intent.putExtra("CornerDoritos", getIntent().getExtras().getString("CornerDoritos", "").toString());
-		intent.putExtra("Coach", getIntent().getExtras().getString("Coach", "").toString());
-		intent.putExtra("ForcaDe", getIntent().getExtras().getString("ForcaDe", "").toString());
-		intent.putExtra("ForcaAte", getIntent().getExtras().getString("ForcaAte", "").toString());
+	public void Time(View view) {
 
 
-		intent.setClass(this, Recomendar.class);
+		Intent intent = new Intent(Home.this, Time.class);
+		intent.putExtra("IdJogadorPesquisar", AbrirForm  );
+
+		intent.setClass(this, Time.class);
 
 		startActivity(intent);
 

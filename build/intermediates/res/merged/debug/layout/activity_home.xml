@@ -246,7 +246,6 @@
 
         android:layout_toRightOf="@+id/LabelForca"
         android:layout_alignBottom="@+id/Snake"
-        android:layout_toStartOf="@+id/voltar_pesquisar"
         android:layout_alignTop="@+id/Snake"
         android:layout_alignRight="@+id/Recomendar"
         android:layout_alignEnd="@+id/Recomendar" />
@@ -368,15 +367,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&lt;&lt; Voltar"
-        android:id="@+id/voltar_pesquisar"
-        android:layout_alignParentBottom="true"
-
-        android:layout_alignParentRight="true"  />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Atributos"
         android:id="@+id/sel_atributos"
         android:layout_above="@+id/notaBackCenter"
@@ -389,6 +379,7 @@
         android:text="Time"
         android:id="@+id/sel_time"
         android:layout_below="@+id/FotoUsuario"
+        android:onClick="Time"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
